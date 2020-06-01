@@ -1,3 +1,10 @@
 main: dev.iqux.rpgpack.App
-name: RPG Pack
+name: RPGPack
+author: HlV_Is_Me
+descriptions: hehe rpg plugin brrr
 version: 0.1
+
+commands:
+  createstone:
+    aliases: [cstone]
+    descriptions: Create stone for enchance some thing like armor, weapon, whatever is it
