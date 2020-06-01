@@ -3,7 +3,6 @@ package dev.iqux.rpgpack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import dev.iqux.rpgpack.commands.enhancement.CreateStone;
-import dev.iqux.rpgpack.events.PlayerJoin;
 import dev.iqux.rpgpack.utils.Plugin;
 
 /**
