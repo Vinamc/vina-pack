@@ -8,3 +8,6 @@ commands:
   createstone:
     aliases: [cstone]
     descriptions: Create stone for enchance some thing like armor, weapon, whatever is it
+  showenhance:
+    aliases: [cuonghoa]
+    descriptions: enchance gui
