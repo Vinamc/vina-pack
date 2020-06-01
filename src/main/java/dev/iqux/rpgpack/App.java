@@ -1,4 +1,4 @@
-package dev.iqux.rpgbag;
+package dev.iqux.rpgpack;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
