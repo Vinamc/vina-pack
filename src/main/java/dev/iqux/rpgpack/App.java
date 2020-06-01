@@ -2,7 +2,9 @@ package dev.iqux.rpgpack;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import dev.iqux.rpgpack.commands.enhancement.CreateStone;
+import dev.iqux.rpgpack.commands.enhancement.*;
+import dev.iqux.rpgpack.listeners.InventoryClick;
+import dev.iqux.rpgpack.listeners.InventoryClose;
 import dev.iqux.rpgpack.utils.Plugin;
 
 /**
@@ -15,9 +17,11 @@ public class App extends JavaPlugin
     public void onEnable() {
 
         saveDefaultConfig();
+
         this.bindPluginStatic();
 
-        this.bindCommand();
+        this.bindCommands();
+        this.bindEvents();
 
         getLogger().info("Enable RPGBag Success");
     }
@@ -27,8 +31,14 @@ public class App extends JavaPlugin
         getLogger().info("See you again, SpigotMC!");
     }
 
-    private void bindCommand() {
+    private void bindCommands() {
         new CreateStone(this);
+        new ShowEnhance(this);
+    }
+
+    private void bindEvents() {
+        new InventoryClick();
+        new InventoryClose();
     }
 
     private void bindPluginStatic() {
