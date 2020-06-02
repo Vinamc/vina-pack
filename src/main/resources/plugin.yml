@@ -3,6 +3,7 @@ name: RPGPack
 author: HlV_Is_Me
 descriptions: hehe rpg plugin brrr
 version: 0.1
+depend: [NBTAPI]
 
 commands:
   createstone:
