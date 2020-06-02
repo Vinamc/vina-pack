@@ -1,0 +1,12 @@
+
+enhancement:
+  stone_name: "đá cường hóa"
+  charm_name: "Bùa chống vỡ"
+  lucky_powder_name: "Bột may mắn"
+
+message:
+  missing_permission: "Thiếu quyền sử dụng lệnh này."
+  hand_empty: "Hãy giữ item trên tay để dùng lệnh này"
+
+  command:
+    create_stone_missing_args: "Dùng /createstone <WEAPON|ARMOR>"
