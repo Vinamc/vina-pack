@@ -17,4 +17,8 @@ public class Config {
     public static long getLong(String key) {
         return Plugin.plugin.getConfig().getLong(key);
     }
+
+    public static String message(String key) {
+        return Utils.color(getString("message.".concat(key)));
+    }
 }
