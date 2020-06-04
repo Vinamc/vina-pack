@@ -6,9 +6,15 @@ version: 0.1
 depend: [NBTAPI]
 
 commands:
-  createstone:
-    aliases: [cstone]
-    descriptions: Create stone for enchance some thing like armor, weapon, whatever is it
+  setstone:
+    aliases: [ss]
+    descriptions: Set stone for enchance some thing like armor, weapon, whatever is it
+  setcharm:
+    aliases: [sc]
+    descriptions: Set charm for protect stats of item
+  setpowder:
+    aliases: [slp]
+    descriptions: Set lucky powder for increase percent rate success when enchance
   showenhance:
     aliases: [cuonghoa]
     descriptions: enchance gui
