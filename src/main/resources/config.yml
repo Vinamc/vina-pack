@@ -1,12 +1,91 @@
 
-enhancement:
-  stone_name: "đá cường hóa"
-  charm_name: "Bùa chống vỡ"
-  lucky_powder_name: "Bột may mắn"
+broadcast_success_after_level: 7
+broadcast_success_message: "Chúc mừng %player_name% cường hóa thành công %item_name% lên cấp %level%"
+
+level:
+  '1':
+    success_chance: 99.99
+    armor_increase: 1
+    weapon_increase: 1
+
+  '2':
+    success_chance: 80
+    armor_increase: 1
+    weapon_increase: 1
+
+  '3':
+    success_chance: 70
+    armor_increase: 2
+    weapon_increase: 2
+
+  '4':
+    success_chance: 60
+    weapon_increase: 2
+    armor_increase: 2
+
+  '5':
+    success_chance: 55
+    armor_increase: 2
+    weapon_increase: 2
+
+  '6':
+    success_chance: 50
+    armor_increase: 3
+    weapon_increase: 3
+
+  '7':
+    success_chance: 45
+    armor_increase: 3
+    weapon_increase: 3
+
+  '8':
+    success_chance: 40
+    armor_increase: 4
+    weapon_increase: 4
+
+  '9':
+    success_chance: 35
+    armor_increase: 4
+    weapon_increase: 4
+
+  '10':
+    success_chance: 30
+    armor_increase: 4
+    weapon_increase: 4
+
+  '11':
+    success_chance: 25
+    armor_increase: 4
+    weapon_increase: 4
+
+  '12':
+    success_chance: 20
+    armor_increase: 5
+    weapon_increase: 5
+
+  '13':
+    success_chance: 15
+    armor_increase: 10
+    weapon_increase: 10
+
+  '14':
+    success_chance: 10
+    armor_increase: 10
+    weapon_increase: 10
+
+  '15':
+    success_chance: 5
+    armor_increase: 20
+    weapon_increase: 20
+
 
 message:
   missing_permission: "Thiếu quyền sử dụng lệnh này."
   hand_empty: "Hãy giữ item trên tay để dùng lệnh này"
+  invalid_data_type: "Tham số không hợp lệ"
+  number_must_positive: "Tham số không được nhỏ hơn 0"
 
   command:
-    create_stone_missing_args: "Dùng /createstone <WEAPON|ARMOR>"
+    create_stone: "Dùng /setstone <WEAPON|ARMOR>"
+    create_charm: "Dùng /setcharm"
+    create_powder: "Dùng /setpowder <rate_percent>"
