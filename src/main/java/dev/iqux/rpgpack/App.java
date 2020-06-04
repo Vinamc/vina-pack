@@ -32,8 +32,10 @@ public class App extends JavaPlugin
     }
 
     private void bindCommands() {
+        new CreatePowder(this);
         new CreateStone(this);
         new ShowEnhance(this);
+        new CreateCharm(this);
     }
 
     private void bindEvents() {
