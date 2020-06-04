@@ -1,6 +1,5 @@
 package dev.iqux.rpgpack.commands.enhancement;
 
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -8,13 +7,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import de.tr7zw.nbtapi.NBTItem;
+import dev.iqux.rpgpack.Enhancement;
 import dev.iqux.rpgpack.utils.Config;
+import dev.iqux.rpgpack.utils.User;
 
 public class CreateStone implements CommandExecutor {
 
     public CreateStone(JavaPlugin plugin) {
-        plugin.getCommand("createstone").setExecutor(this);
+        plugin.getCommand("setstone").setExecutor(this);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class CreateStone implements CommandExecutor {
         }
 
         Player player   = (Player) sender;
-        ItemStack stone = this.getPlayerHandItem(player);
+        ItemStack stone = User.getPlayerHandItem(player);
 
         if (! (player.hasPermission("rpgpack.admin.createstone"))) {
             player.sendMessage(Config.message("missing_permission"));
@@ -38,32 +38,29 @@ public class CreateStone implements CommandExecutor {
             return false;
         }
 
-        if (args.length < 2) {
-            player.sendMessage(Config.message("command.create_stone_missing_args"));
-            return false;
-        }
+        // if (! isValidArgs(args)) {
+        //     player.sendMessage(Config.message("command.create_stone"));
+        //     return false;
+        // }
 
-        player.getInventory().setItemInMainHand(makeStone(stone, args[0], args[1]));
+
+        player.getInventory().setItemInMainHand(Enhancement.setStone(stone, args[0]));
 
         return true;
     }
 
-    protected ItemStack getPlayerHandItem(Player p) {
-        ItemStack item = p.getInventory().getItemInMainHand();
-
-        if (item != null && item.getType().name().equals(Material.AIR.name())) {
-            return null;
+    protected static boolean isValidArgs(String[] args) {
+        if (args.length < 1) {
+            return false;
         }
 
-        return item;
-    }
+        for (String type : Enhancement.getTypeEnhanceStone()) {
+            if (type.equals(args[0])) {
+                return true;
+            }
+        }
 
-    protected ItemStack makeStone(ItemStack stone, String type, String action) {
-        NBTItem nbti = new NBTItem(stone);
 
-        nbti.setString("type", type);
-        nbti.setString("action", action);
-
-        return nbti.getItem();
+        return false;
     }
 }
