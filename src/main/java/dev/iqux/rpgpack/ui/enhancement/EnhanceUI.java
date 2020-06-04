@@ -7,38 +7,25 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import dev.iqux.rpgpack.Enhancement;
 import dev.iqux.rpgpack.utils.Utils;
 
 public class EnhanceUI {
 
     public static String   name = "EnhanceUI";
-    protected static int   rows = 4*9;
-    protected static int[] allowMotifySlots = {14, 20, 26};
+    protected static int   rows = 6*9;
+    protected static int[] allowMotifySlots = {13, 15, 30, 32, 34};
 
     public static Inventory GUI(Player p) {
         Inventory inv = Utils.createInventory(null, rows, Utils.color(name));
 
-        int[] yellowSlot = {10, 11, 12, 19, 21, 28, 29, 30};
-        int[] blackSlot  = {13, 15, 22, 23, 24};
-        int[] blueSlot   = {16, 17, 18, 25, 27, 34, 35, 36};
-
         for (int slot = 1; slot <= rows; slot++) {
-            if (slot < 10 || inArrayInt(blackSlot, slot)) {
-                Utils.createItemByte(inv, Material.STAINED_GLASS_PANE.name(), 1, 15, slot, "Enhance");
-            }
-
-            if (inArrayInt(yellowSlot, slot)) {
-                Utils.createItemByte(inv, Material.STAINED_GLASS_PANE.name(), 1, 4, slot, "Enhance");
-            }
-
-            if (inArrayInt(blueSlot, slot)) {
-                Utils.createItemByte(inv, Material.STAINED_GLASS_PANE.name(), 1, 9, slot, "Enhance");
+            if (! inArrayInt(allowMotifySlots, slot)) {
+                Utils.createItemByte(inv, Material.STAINED_GLASS_PANE.name(), 1, 15, slot, "");
             }
         }
 
-        Utils.createItem(inv, Material.BARRIER.name(), 1, 31, "Cancel", "exit");
-        Utils.createItem(inv, Material.ANVIL.name(), 1, 32, "Enhance", "Enhance those item");
-        Utils.createItem(inv, Material.BARRIER.name(), 1, 33, "Cancel", "exit");
+        Utils.createItem(inv, Material.ANVIL.name(), 1, 50, "Enhance", "Enhance those item");
 
         return inv;
     }
@@ -48,22 +35,26 @@ public class EnhanceUI {
             return;
         }
 
-        ItemStack clickItem = e.getCurrentItem();
+        Player p = (Player) e.getWhoClicked();
+        Inventory inv       = e.getInventory();
+        ItemStack actionItem = Utils.isAirItem(e.getCursor()) ? e.getCurrentItem() : e.getCursor();
+        int slotClicked     = e.getSlot() + 1;
 
         if (isPlayerInventory(e)) {
             return;
         }
 
-        if (! inArrayInt(allowMotifySlots, e.getSlot() + 1)) {
+        boolean notValid =  (slotClicked == 30 && !Enhancement.isStone(actionItem))  ||
+                            (slotClicked == 32 && !Enhancement.isPowder(actionItem)) ||
+                            (slotClicked == 34 && !Enhancement.isCharm(actionItem))  ||
+                            ! inArrayInt(allowMotifySlots, slotClicked);
+
+        if (notValid) {
             e.setCancelled(true);
         }
 
-        if (clickItem.getType().name().equals(Material.BARRIER.name())) {
-            e.getWhoClicked().closeInventory();
-        }
-
-        if (clickItem.getType().name().equals(Material.ANVIL.name())) {
-            enhance(e);
+        if (actionItem.getType().name().equals(Material.ANVIL.name()) && !Utils.isAirItem(getStone(inv))) {
+            //enhance(e);
         }
     }
 
@@ -91,7 +82,12 @@ public class EnhanceUI {
     }
 
     protected static void enhance(InventoryClickEvent e) {
-        // TODO
+
+        Inventory inv = e.getInventory();
+
+        ItemStack item = Enhancement.enhanceWeaponSuccess(getItemEnhance(inv));
+
+        inv.setItem(15 - 1, item);
     }
 
     protected static boolean isPlayerInventory(InventoryClickEvent e) {
@@ -115,4 +111,21 @@ public class EnhanceUI {
 
         return false;
     }
+
+    protected static ItemStack getStone(Inventory inv) {
+        return inv.getItem(30 - 1);
+    }
+
+    protected static ItemStack getCharm(Inventory inv) {
+        return inv.getItem(32 - 1);
+    }
+
+    protected static ItemStack getPowder(Inventory inv) {
+        return inv.getItem(34 - 1);
+    }
+
+    protected static ItemStack getItemEnhance(Inventory inv) {
+        return inv.getItem(13 - 1);
+    }
+
 }
