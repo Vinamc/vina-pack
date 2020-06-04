@@ -11,6 +11,8 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import de.tr7zw.nbtapi.NBTItem;
+
 public class Utils {
     
     public static String color(String string) {
@@ -24,6 +26,10 @@ public class Utils {
      */
     public static void bc(String msg) {
         Bukkit.broadcastMessage(Utils.color(msg));
+    }
+
+    public static boolean isAirItem(ItemStack item) {
+        return item != null && item.getType().name().equals(Material.AIR.name());
     }
 
     public static ItemStack createItem(Inventory inv, String material, int amount, int slot, String displayName, String ...loreStrings) {
@@ -58,6 +64,10 @@ public class Utils {
         inv.setItem(slot -1 , item);
 
         return item;
+    }
+
+    public static NBTItem toNBTItem(ItemStack item) {
+        return new NBTItem(item);
     }
 
     public static Inventory createInventory(InventoryHolder owner, int numRow, String name) {
