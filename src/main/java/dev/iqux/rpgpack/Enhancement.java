@@ -1,10 +1,11 @@
 package dev.iqux.rpgpack;
 
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
+import de.tr7zw.nbtapi.NBTCompoundList;
 import de.tr7zw.nbtapi.NBTItem;
+import de.tr7zw.nbtapi.NBTListCompound;
 import dev.iqux.rpgpack.utils.Config;
 import dev.iqux.rpgpack.utils.Utils;
 
@@ -31,19 +32,55 @@ public class Enhancement {
         int defaultlDamage = getIntItemKey(item, "default_damage");
         int customDamage   = getIntItemKey(item, "custom_damage");
 
-        item.addEnchantment(Enchantment.DAMAGE_ALL, defaultlDamage + customDamage + increaseDamage);
-
         NBTItem nbti = Utils.toNBTItem(item);
+
         nbti.setInteger("level", itemLevel);
         nbti.setInteger("default_damage", defaultlDamage + increaseDamage);
 
+        NBTCompoundList attribute = nbti.getCompoundList("AttributeModifiers");
+        attribute.clear();
+
+        NBTListCompound damage = attribute.addCompound();
+
+        damage.setInteger("Amount", defaultlDamage + customDamage + increaseDamage + Utils.getDefaultDamage(item));
+        damage.setString("AttributeName", "generic.attackDamage");
+        damage.setString("Name", "generic.attackDamage");
+        damage.setInteger("Operation", 0);
+        damage.setInteger("UUIDLeast", 59664);
+        damage.setInteger("UUIDMost", 31453);
+        damage.setString("Slot", "mainhand");
 
         return nbti.getItem();
     }
 
-    public static ItemStack enhanceFailed(ItemStack item) {
+    public static ItemStack enhanceWeaponFailed(ItemStack item) {
+        int itemLevel      = getIntItemKey(item, "level") - 1;
+        int decreaseDamage = - Config.getInt(
+            "level.".concat(Integer.toString(itemLevel)).concat(".weapon_increase")
+        );
 
-        return item;
+        int defaultlDamage = getIntItemKey(item, "default_damage");
+        int customDamage   = getIntItemKey(item, "custom_damage");
+
+        NBTItem nbti = Utils.toNBTItem(item);
+
+        nbti.setInteger("level", itemLevel);
+        nbti.setInteger("default_damage", defaultlDamage + decreaseDamage);
+
+        NBTCompoundList attribute = nbti.getCompoundList("AttributeModifiers");
+        attribute.clear();
+
+        NBTListCompound damage = attribute.addCompound();
+
+        damage.setInteger("Amount", defaultlDamage + customDamage + decreaseDamage + Utils.getDefaultDamage(item));
+        damage.setString("AttributeName", "generic.attackDamage");
+        damage.setString("Name", "generic.attackDamage");
+        damage.setInteger("Operation", 0);
+        damage.setInteger("UUIDLeast", 59664);
+        damage.setInteger("UUIDMost", 31453);
+        damage.setString("Slot", "mainhand");
+
+        return nbti.getItem();
     }
 
     public static ItemStack setCharm(ItemStack item) {
@@ -86,7 +123,7 @@ public class Enhancement {
 
     protected static boolean is(ItemStack item, String key, String type) {
 
-        if (item != null && item.getType().name().equals(Material.AIR.name())) {
+        if (item == null || item.getType().name().equals(Material.AIR.name())) {
             return false;
         }
 
@@ -99,7 +136,7 @@ public class Enhancement {
         return false;
     }
 
-    private static int getIntItemKey(ItemStack item, String key) {
+    public static int getIntItemKey(ItemStack item, String key) {
         if (Utils.toNBTItem(item).getInteger(key) != null) {
             return Utils.toNBTItem(item).getInteger(key);
         }
