@@ -44,7 +44,7 @@ public class CreateStone implements CommandExecutor {
         // }
 
 
-        player.getInventory().setItemInMainHand(Enhancement.setStone(stone, args[0]));
+        player.getInventory().setItemInMainHand(Enhancement.setStone(stone, "ANY"));
 
         return true;
     }
@@ -59,7 +59,6 @@ public class CreateStone implements CommandExecutor {
                 return true;
             }
         }
-
 
         return false;
     }
