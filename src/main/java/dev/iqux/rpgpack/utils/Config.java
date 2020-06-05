@@ -18,7 +18,15 @@ public class Config {
         return Plugin.plugin.getConfig().getLong(key);
     }
 
+    public static Float getFloat(String key) {
+        Double d = Plugin.plugin.getConfig().getDouble(key);
+
+        return d.floatValue();
+    }
+
     public static String message(String key) {
-        return Utils.color(getString("message.".concat(key)));
+        return Utils.color(
+            getString("message_prefix").concat(getString("message.".concat(key)))
+        );
     }
 }
