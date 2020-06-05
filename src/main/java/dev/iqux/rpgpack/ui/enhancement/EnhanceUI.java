@@ -1,6 +1,7 @@
 package dev.iqux.rpgpack.ui.enhancement;
 
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -8,6 +9,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import dev.iqux.rpgpack.Enhancement;
+import dev.iqux.rpgpack.utils.Config;
+import dev.iqux.rpgpack.utils.Random;
+import dev.iqux.rpgpack.utils.User;
 import dev.iqux.rpgpack.utils.Utils;
 
 public class EnhanceUI {
@@ -35,7 +39,6 @@ public class EnhanceUI {
             return;
         }
 
-        Player p = (Player) e.getWhoClicked();
         Inventory inv       = e.getInventory();
         ItemStack actionItem = Utils.isAirItem(e.getCursor()) ? e.getCurrentItem() : e.getCursor();
         int slotClicked     = e.getSlot() + 1;
@@ -53,8 +56,8 @@ public class EnhanceUI {
             e.setCancelled(true);
         }
 
-        if (actionItem.getType().name().equals(Material.ANVIL.name()) && !Utils.isAirItem(getStone(inv))) {
-            //enhance(e);
+        if (actionItem.getType().name().equals(Material.ANVIL.name()) && !Utils.isAirItem(getItem(inv))) {
+            enhance(e);
         }
     }
 
@@ -71,23 +74,76 @@ public class EnhanceUI {
         for (int slot : allowMotifySlots) {
             returnItem = getItemInSlot(inv, slot);
 
-            if (returnItem != null) {
-                if (player.getInventory().firstEmpty() != -1) {
-                    player.getInventory().addItem(returnItem);
-                } else {
-                    player.getWorld().dropItem(player.getLocation(), returnItem);
-                }
-            }
+            User.giveBackItem(player, returnItem);
         }
     }
 
     protected static void enhance(InventoryClickEvent e) {
 
-        Inventory inv = e.getInventory();
+        Player player    = (Player) e.getWhoClicked();
+        Inventory inv    = e.getInventory();
+        ItemStack item   = getItem(inv);
+        ItemStack stone  = getStone(inv);
+        ItemStack charm  = getCharm(inv);
+        ItemStack powder = getPowder(inv);
 
-        ItemStack item = Enhancement.enhanceWeaponSuccess(getItemEnhance(inv));
+        if (Utils.isAirItem(item) || !Enhancement.isStone(stone)) {
+            return;
+        }
 
-        inv.setItem(15 - 1, item);
+        User.playSound(player, Sound.BLOCK_ANVIL_USE);
+
+        Float chance  = Float.parseFloat("0");
+        int currentLevel = Enhancement.getIntItemKey(item, "level");
+
+        chance += Config.getFloat(
+            "level.".concat(Integer.toString(currentLevel + 1)).concat(".success_chance")
+        );
+
+        if (Enhancement.isPowder(powder)) {
+            chance += Utils.toNBTItem(powder).getFloat("rate");
+        }
+
+        if (Random.canSuccess(chance)) {
+            item = Enhancement.enhanceWeaponSuccess(item.clone());
+            player.sendMessage(Config.message("enhance_success"));
+            clearItemModify(inv, player);
+            inv.setItem(15 -1, item);
+
+            if (currentLevel + 1 >= Config.getInt("broadcast_success_after_level")) {
+                 player.sendMessage(
+                    Config.message("broadcast_success_message")
+                    .replace("%player_name%", player.getDisplayName())
+                    .replace("%item_name%", item.getType().name())
+                    .replace("%item_level%", Integer.toString(currentLevel + 1))
+                );
+            }
+           
+        } else {
+            if (! Enhancement.isCharm(charm)) {
+                item = Enhancement.enhanceWeaponFailed(item.clone());
+            }
+
+            player.sendMessage(Config.message("enhance_failed"));
+            clearItemModify(inv, player);
+            inv.setItem(15 -1, item);
+        }
+    }
+
+    protected static void clearItemModify(Inventory inv, Player p) {
+        ItemStack item;
+
+        for (int slot : allowMotifySlots) {
+            item = inv.getItem(slot -1);
+
+            if (slot == 15) {
+                User.giveBackItem(p, item);
+            } else if (!Utils.isAirItem(item) && item.getAmount() > 1) {
+                item.setAmount(item.getAmount() -1);
+            } else {
+                inv.clear(slot - 1);
+            }
+        }
     }
 
     protected static boolean isPlayerInventory(InventoryClickEvent e) {
@@ -112,20 +168,20 @@ public class EnhanceUI {
         return false;
     }
 
+    protected static ItemStack getItem(Inventory inv) {
+        return inv.getItem(13 -1);
+    }
+
     protected static ItemStack getStone(Inventory inv) {
         return inv.getItem(30 - 1);
     }
 
     protected static ItemStack getCharm(Inventory inv) {
-        return inv.getItem(32 - 1);
-    }
-
-    protected static ItemStack getPowder(Inventory inv) {
         return inv.getItem(34 - 1);
     }
 
-    protected static ItemStack getItemEnhance(Inventory inv) {
-        return inv.getItem(13 - 1);
+    protected static ItemStack getPowder(Inventory inv) {
+        return inv.getItem(32 - 1);
     }
 
 }
