@@ -1,6 +1,5 @@
 
 broadcast_success_after_level: 7
-broadcast_success_message: "Chúc mừng %player_name% cường hóa thành công %item_name% lên cấp %level%"
 
 level:
   '1':
@@ -78,12 +77,16 @@ level:
     armor_increase: 20
     weapon_increase: 20
 
+message_prefix: "[&6VinaMC&r] &2"
 
 message:
+  enhance_success: "Cường hóa thành công"
+  enhance_failed: "Cường hóa thất bại"
   missing_permission: "Thiếu quyền sử dụng lệnh này."
   hand_empty: "Hãy giữ item trên tay để dùng lệnh này"
   invalid_data_type: "Tham số không hợp lệ"
   number_must_positive: "Tham số không được nhỏ hơn 0"
+  broadcast_success_message: "Chúc mừng %player_name% cường hóa thành công %item_name% lên cấp %item_level%"
 
   command:
     create_stone: "Dùng /setstone <WEAPON|ARMOR>"
