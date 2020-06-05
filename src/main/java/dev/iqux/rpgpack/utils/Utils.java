@@ -29,7 +29,7 @@ public class Utils {
     }
 
     public static boolean isAirItem(ItemStack item) {
-        return item != null && item.getType().name().equals(Material.AIR.name());
+        return item == null || item.getType().name().equals(Material.AIR.name());
     }
 
     public static ItemStack createItem(Inventory inv, String material, int amount, int slot, String displayName, String ...loreStrings) {
@@ -72,5 +72,36 @@ public class Utils {
 
     public static Inventory createInventory(InventoryHolder owner, int numRow, String name) {
         return Bukkit.createInventory(owner, numRow, name);
+    }
+
+    public static int getDefaultDamage(ItemStack item) {
+
+        if (isMaterial(item, Material.DIAMOND_SWORD)) {
+            return 7;
+        } else if (isMaterial(item, Material.GOLD_SWORD)) {
+            return 4;
+        } else if (isMaterial(item, Material.IRON_SWORD)) {
+            return 6;
+        } else if (isMaterial(item, Material.STONE_SWORD)) {
+            return 5;
+        } else if (isMaterial(item, Material.WOOD_SWORD)) {
+            return 4;
+        } else if (isMaterial(item, Material.DIAMOND_AXE)) {
+            return 9;
+        } else if (isMaterial(item, Material.GOLD_AXE)) {
+            return 7;
+        } else if (isMaterial(item, Material.IRON_AXE)) {
+            return 9;
+        } else if (isMaterial(item, Material.STONE_AXE)) {
+            return 9;
+        } else if (isMaterial(item, Material.WOOD_AXE)) {
+            return 7;
+        }
+
+        return 1;
+    }
+
+    private static Boolean isMaterial(ItemStack item, Material material) {
+        return item.getType().name().equals(material.name());
     }
 }
