@@ -54,7 +54,7 @@ public class Enhancement {
     }
 
     public static ItemStack enhanceWeaponFailed(ItemStack item) {
-        int itemLevel      = getIntItemKey(item, "level") - 1;
+        int itemLevel      = getIntItemKey(item, "level");
         int decreaseDamage = - Config.getInt(
             "level.".concat(Integer.toString(itemLevel)).concat(".weapon_increase")
         );
@@ -64,7 +64,7 @@ public class Enhancement {
 
         NBTItem nbti = Utils.toNBTItem(item);
 
-        nbti.setInteger("level", itemLevel);
+        nbti.setInteger("level", itemLevel - 1);
         nbti.setInteger("default_damage", defaultlDamage + decreaseDamage);
 
         NBTCompoundList attribute = nbti.getCompoundList("AttributeModifiers");
