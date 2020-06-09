@@ -101,7 +101,8 @@ public class EnhanceUI {
         );
 
         if (Enhancement.isPowder(powder)) {
-            chance += Utils.toNBTItem(powder).getFloat("rate");
+            Float powderRate = (Utils.toNBTItem(powder).getFloat("rate")/ 100) * chance;
+            chance += powderRate;
         }
 
         if (Random.canSuccess(chance)) {
