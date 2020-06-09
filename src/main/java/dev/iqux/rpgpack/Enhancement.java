@@ -1,11 +1,10 @@
 package dev.iqux.rpgpack;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import de.tr7zw.nbtapi.NBTCompoundList;
 import de.tr7zw.nbtapi.NBTItem;
-import de.tr7zw.nbtapi.NBTListCompound;
 import dev.iqux.rpgpack.utils.Config;
 import dev.iqux.rpgpack.utils.Utils;
 
@@ -21,66 +20,6 @@ public class Enhancement {
         String[] type = {TYPE_WEAPON, TYPE_ARMOR};
 
         return type;
-    }
-
-    public static ItemStack enhanceWeaponSuccess(ItemStack item) {
-        int itemLevel      = getIntItemKey(item, "level") + 1;
-        int increaseDamage = Config.getInt(
-            "level.".concat(Integer.toString(itemLevel)).concat(".weapon_increase")
-        );
-
-        int defaultlDamage = getIntItemKey(item, "default_damage");
-        int customDamage   = getIntItemKey(item, "custom_damage");
-
-        NBTItem nbti = Utils.toNBTItem(item);
-
-        nbti.setInteger("level", itemLevel);
-        nbti.setInteger("default_damage", defaultlDamage + increaseDamage);
-
-        NBTCompoundList attribute = nbti.getCompoundList("AttributeModifiers");
-        attribute.clear();
-
-        NBTListCompound damage = attribute.addCompound();
-
-        damage.setInteger("Amount", defaultlDamage + customDamage + increaseDamage + Utils.getDefaultDamage(item));
-        damage.setString("AttributeName", "generic.attackDamage");
-        damage.setString("Name", "generic.attackDamage");
-        damage.setInteger("Operation", 0);
-        damage.setInteger("UUIDLeast", 59664);
-        damage.setInteger("UUIDMost", 31453);
-        damage.setString("Slot", "mainhand");
-
-        return nbti.getItem();
-    }
-
-    public static ItemStack enhanceWeaponFailed(ItemStack item) {
-        int itemLevel      = getIntItemKey(item, "level");
-        int decreaseDamage = - Config.getInt(
-            "level.".concat(Integer.toString(itemLevel)).concat(".weapon_increase")
-        );
-
-        int defaultlDamage = getIntItemKey(item, "default_damage");
-        int customDamage   = getIntItemKey(item, "custom_damage");
-
-        NBTItem nbti = Utils.toNBTItem(item);
-
-        nbti.setInteger("level", itemLevel - 1);
-        nbti.setInteger("default_damage", defaultlDamage + decreaseDamage);
-
-        NBTCompoundList attribute = nbti.getCompoundList("AttributeModifiers");
-        attribute.clear();
-
-        NBTListCompound damage = attribute.addCompound();
-
-        damage.setInteger("Amount", defaultlDamage + customDamage + decreaseDamage + Utils.getDefaultDamage(item));
-        damage.setString("AttributeName", "generic.attackDamage");
-        damage.setString("Name", "generic.attackDamage");
-        damage.setInteger("Operation", 0);
-        damage.setInteger("UUIDLeast", 59664);
-        damage.setInteger("UUIDMost", 31453);
-        damage.setString("Slot", "mainhand");
-
-        return nbti.getItem();
     }
 
     public static ItemStack setCharm(ItemStack item) {
@@ -155,5 +94,43 @@ public class Enhancement {
         }
 
         return false;
+    }
+
+    protected static ItemStack setItemNameLevel(ItemStack item, int level)
+    {
+        if (level < 0) {
+            return item;
+        }
+
+        String levelColor = Utils.color(Config.getString("level.color")).concat(Integer.toString(level));
+
+        if (!item.getItemMeta().hasDisplayName()) {
+
+            return Utils.setItemName(item,
+                "".concat(Utils.color("&r"))
+                .concat(Utils.getItemName(item))
+                .concat(" ").concat(levelColor)
+            );
+        }
+
+        
+        String[] name   = Utils.getItemName(item).split(" ");
+        String lastName = name[name.length -1];
+
+        if (ChatColor.stripColor(lastName).matches("^[0-9+]+$")) {
+            name[name.length -1] = "";
+
+            String itemName = String.join(" ", name).concat(levelColor);
+
+            return Utils.setItemName(item, itemName);
+        }
+
+        return Utils.setItemName(item,
+            Utils.getItemName(item).concat(" ").concat(levelColor)
+        );
+    }
+
+    protected static boolean isMaterial(ItemStack item, Material material) {
+        return Utils.isMaterial(item, material);
     }
 }
