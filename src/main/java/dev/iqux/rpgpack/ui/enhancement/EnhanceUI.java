@@ -9,6 +9,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import dev.iqux.rpgpack.Enhancement;
+import dev.iqux.rpgpack.enhancement.Armor;
+import dev.iqux.rpgpack.enhancement.Weapon;
 import dev.iqux.rpgpack.utils.Config;
 import dev.iqux.rpgpack.utils.Random;
 import dev.iqux.rpgpack.utils.User;
@@ -105,8 +107,16 @@ public class EnhanceUI {
             chance += powderRate;
         }
 
+        if (Enhancement.isArmor(item)) {
+            enhanceArmor(player, item, currentLevel, inv, charm, chance);
+        } else {
+            enhanceWeapon(player, item, currentLevel, inv, charm, chance);
+        }
+    }
+
+    protected static void enhanceWeapon(Player player, ItemStack item, int currentLevel, Inventory inv, ItemStack charm, float chance) {
         if (Random.canSuccess(chance)) {
-            item = Enhancement.enhanceWeaponSuccess(item.clone());
+            item = Weapon.enhanceSuccess(item.clone());
             player.sendMessage(Config.message("enhance_success"));
             clearItemModify(inv, player);
             inv.setItem(15 -1, item);
@@ -115,14 +125,39 @@ public class EnhanceUI {
                  player.sendMessage(
                     Config.message("broadcast_success_message")
                     .replace("%player_name%", player.getDisplayName())
-                    .replace("%item_name%", item.getType().name())
+                    .replace("%item_name%", Utils.getItemName(item))
                     .replace("%item_level%", Integer.toString(currentLevel + 1))
                 );
             }
-           
         } else {
             if (! Enhancement.isCharm(charm)) {
-                item = Enhancement.enhanceWeaponFailed(item.clone());
+                item = Weapon.enhanceFailed(item.clone());
+            }
+
+            player.sendMessage(Config.message("enhance_failed"));
+            clearItemModify(inv, player);
+            inv.setItem(15 -1, item);
+        }
+    }
+
+    protected static void enhanceArmor(Player player, ItemStack item, int currentLevel, Inventory inv, ItemStack charm, float chance) {
+        if (Random.canSuccess(chance)) {
+            item = Armor.enhanceSuccess(item.clone());
+            player.sendMessage(Config.message("enhance_success"));
+            clearItemModify(inv, player);
+            inv.setItem(15 -1, item);
+
+            if (currentLevel + 1 >= Config.getInt("broadcast_success_after_level")) {
+                 player.sendMessage(
+                    Config.message("broadcast_success_message")
+                    .replace("%player_name%", player.getDisplayName())
+                    .replace("%item_name%", Utils.getItemName(item))
+                    .replace("%item_level%", Integer.toString(currentLevel + 1))
+                );
+            }
+        } else {
+            if (! Enhancement.isCharm(charm)) {
+                item = Armor.enhanceFailed(item.clone());
             }
 
             player.sendMessage(Config.message("enhance_failed"));
