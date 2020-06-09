@@ -1,9 +1,11 @@
 
-broadcast_success_after_level: 7
+broadcast_success_after_level: 8
 
 level:
+  color: "&6&l+"
+
   '1':
-    success_chance: 99.99
+    success_chance: 90
     armor_increase: 1
     weapon_increase: 1
 
@@ -14,81 +16,81 @@ level:
 
   '3':
     success_chance: 70
-    armor_increase: 2
-    weapon_increase: 2
+    armor_increase: 1
+    weapon_increase: 1
 
   '4':
     success_chance: 60
-    weapon_increase: 2
-    armor_increase: 2
+    weapon_increase: 1
+    armor_increase: 1
 
   '5':
     success_chance: 55
-    armor_increase: 2
-    weapon_increase: 2
+    armor_increase: 1
+    weapon_increase: 1
 
   '6':
     success_chance: 50
-    armor_increase: 3
-    weapon_increase: 3
-
-  '7':
-    success_chance: 45
-    armor_increase: 3
-    weapon_increase: 3
-
-  '8':
-    success_chance: 40
-    armor_increase: 4
-    weapon_increase: 4
-
-  '9':
-    success_chance: 35
-    armor_increase: 4
-    weapon_increase: 4
-
-  '10':
-    success_chance: 30
-    armor_increase: 4
-    weapon_increase: 4
-
-  '11':
-    success_chance: 25
-    armor_increase: 4
-    weapon_increase: 4
-
-  '12':
-    success_chance: 20
     armor_increase: 5
     weapon_increase: 5
 
-  '13':
-    success_chance: 15
+  '7':
+    success_chance: 45
+    armor_increase: 5
+    weapon_increase: 5
+
+  '8':
+    success_chance: 40
+    armor_increase: 5
+    weapon_increase: 5
+
+  '9':
+    success_chance: 35
+    armor_increase: 5
+    weapon_increase: 5
+
+  '10':
+    success_chance: 30
     armor_increase: 10
     weapon_increase: 10
 
-  '14':
-    success_chance: 10
+  '11':
+    success_chance: 25
     armor_increase: 10
     weapon_increase: 10
+
+  '12':
+    success_chance: 20
+    armor_increase: 10
+    weapon_increase: 10
+
+  '13':
+    success_chance: 15
+    armor_increase: 15
+    weapon_increase: 15
+
+  '14':
+    success_chance: 10
+    armor_increase: 15
+    weapon_increase: 15
 
   '15':
     success_chance: 5
     armor_increase: 20
     weapon_increase: 20
 
-message_prefix: "[&6VinaMC&r] &2"
+message_prefix: "[&6VinaMC&r] "
 
 message:
-  enhance_success: "Cường hóa thành công"
-  enhance_failed: "Cường hóa thất bại"
-  missing_permission: "Thiếu quyền sử dụng lệnh này."
-  hand_empty: "Hãy giữ item trên tay để dùng lệnh này"
-  invalid_data_type: "Tham số không hợp lệ"
-  number_must_positive: "Tham số không được nhỏ hơn 0"
-  broadcast_success_message: "Chúc mừng %player_name% cường hóa thành công %item_name% lên cấp %item_level%"
+  enhance_success: "&aCường hóa thành công"
+  enhance_failed: "&cCường hóa thất bại"
+  missing_permission: "&4Thiếu quyền sử dụng lệnh này."
+  hand_empty: "&3Hãy giữ item trên tay để dùng lệnh này"
+  invalid_data_type: "&cTham số không hợp lệ"
+  number_must_positive: "&cTham số không được nhỏ hơn 0"
+  broadcast_success_message: "&2Chúc mừng %player_name% cường hóa thành công %item_name%&r lên cấp %item_level%"
 
   command:
-    create_stone: "Dùng /setstone <WEAPON|ARMOR>"
+    create_stone: "Dùng /setstone"
     create_charm: "Dùng /setcharm"
     create_powder: "Dùng /setpowder <rate_percent>"
