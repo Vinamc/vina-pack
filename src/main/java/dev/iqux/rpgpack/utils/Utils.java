@@ -3,6 +3,7 @@ package dev.iqux.rpgpack.utils;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -74,34 +75,27 @@ public class Utils {
         return Bukkit.createInventory(owner, numRow, name);
     }
 
-    public static int getDefaultDamage(ItemStack item) {
+    public static ItemStack setItemName(ItemStack item, String name) {
+        ItemMeta itemMeta = item.getItemMeta();
+        itemMeta.setDisplayName(name);
+        item.setItemMeta(itemMeta);
 
-        if (isMaterial(item, Material.DIAMOND_SWORD)) {
-            return 7;
-        } else if (isMaterial(item, Material.GOLD_SWORD)) {
-            return 4;
-        } else if (isMaterial(item, Material.IRON_SWORD)) {
-            return 6;
-        } else if (isMaterial(item, Material.STONE_SWORD)) {
-            return 5;
-        } else if (isMaterial(item, Material.WOOD_SWORD)) {
-            return 4;
-        } else if (isMaterial(item, Material.DIAMOND_AXE)) {
-            return 9;
-        } else if (isMaterial(item, Material.GOLD_AXE)) {
-            return 7;
-        } else if (isMaterial(item, Material.IRON_AXE)) {
-            return 9;
-        } else if (isMaterial(item, Material.STONE_AXE)) {
-            return 9;
-        } else if (isMaterial(item, Material.WOOD_AXE)) {
-            return 7;
-        }
-
-        return 1;
+        return item;
     }
 
-    private static Boolean isMaterial(ItemStack item, Material material) {
+    public static String getItemName(ItemStack item) {
+        if (item.getItemMeta().hasDisplayName()) {
+            return item.getItemMeta().getDisplayName();
+        }
+
+        String name = item.getType().name();
+
+        name = String.join(" ", name.split("_")).toLowerCase();
+
+        return StringUtils.capitalize(name);
+    }
+
+    public static Boolean isMaterial(ItemStack item, Material material) {
         return item.getType().name().equals(material.name());
     }
 }
