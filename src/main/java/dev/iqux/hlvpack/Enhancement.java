@@ -102,7 +102,7 @@ public class Enhancement {
             return item;
         }
 
-        String levelColor = Utils.color(Config.getString("level.color")).concat(Integer.toString(level));
+        String levelColor = Utils.color(Config.getString("level.color")).concat("+").concat(Integer.toString(level));
 
         if (!item.getItemMeta().hasDisplayName()) {
 
