@@ -1,4 +1,4 @@
-package dev.iqux.hlvpack.commands.enhancement;
+package dev.iqux.vina.commands.enhancement;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,9 +7,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import dev.iqux.hlvpack.Enhancement;
-import dev.iqux.hlvpack.utils.Config;
-import dev.iqux.hlvpack.utils.User;
+import dev.iqux.vina.Enhancement;
+import dev.iqux.vina.utils.Config;
+import dev.iqux.vina.utils.User;
 
 public class CreateCharm implements CommandExecutor {
 

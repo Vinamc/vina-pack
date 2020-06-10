@@ -1,4 +1,4 @@
-package dev.iqux.hlvpack.enhancement;
+package dev.iqux.vina.enhancement;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -6,9 +6,9 @@ import org.bukkit.inventory.ItemStack;
 import de.tr7zw.nbtapi.NBTCompoundList;
 import de.tr7zw.nbtapi.NBTItem;
 import de.tr7zw.nbtapi.NBTListCompound;
-import dev.iqux.hlvpack.Enhancement;
-import dev.iqux.hlvpack.utils.Config;
-import dev.iqux.hlvpack.utils.Utils;
+import dev.iqux.vina.Enhancement;
+import dev.iqux.vina.utils.Config;
+import dev.iqux.vina.utils.Utils;
 
 
 public class Weapon extends Enhancement

@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>dev.iqux</groupId>
-  <artifactId>hlv-pack</artifactId>
+  <artifactId>vina-pack</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>hlv-pack</name>
+  <name>vina-pack</name>
   <!-- FIXME change it to the project's website -->
   <!-- <url>http://www.example.com</url> -->
 

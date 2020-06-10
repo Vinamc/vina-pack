@@ -1,11 +1,11 @@
-package dev.iqux.hlvpack;
+package dev.iqux.vina;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import dev.iqux.hlvpack.commands.enhancement.*;
-import dev.iqux.hlvpack.listeners.InventoryClick;
-import dev.iqux.hlvpack.listeners.InventoryClose;
-import dev.iqux.hlvpack.utils.Plugin;
+import dev.iqux.vina.commands.enhancement.*;
+import dev.iqux.vina.listeners.InventoryClick;
+import dev.iqux.vina.listeners.InventoryClose;
+import dev.iqux.vina.utils.Plugin;
 
 /**
  * Hello world!

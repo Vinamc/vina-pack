@@ -1,4 +1,4 @@
-package dev.iqux.hlvpack.utils;
+package dev.iqux.vina.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;

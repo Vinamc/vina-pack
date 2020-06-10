@@ -1,12 +1,12 @@
-package dev.iqux.hlvpack;
+package dev.iqux.vina;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import de.tr7zw.nbtapi.NBTItem;
-import dev.iqux.hlvpack.utils.Config;
-import dev.iqux.hlvpack.utils.Utils;
+import dev.iqux.vina.utils.Config;
+import dev.iqux.vina.utils.Utils;
 
 public class Enhancement {
     public static final String TYPE_ARMOR           = "ARMOR";

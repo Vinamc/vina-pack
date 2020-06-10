@@ -1,4 +1,4 @@
-package dev.iqux.hlvpack.utils;
+package dev.iqux.vina.utils;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;

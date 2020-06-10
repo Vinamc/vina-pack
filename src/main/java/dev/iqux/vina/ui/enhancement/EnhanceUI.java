@@ -1,4 +1,4 @@
-package dev.iqux.hlvpack.ui.enhancement;
+package dev.iqux.vina.ui.enhancement;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -8,13 +8,13 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import dev.iqux.hlvpack.Enhancement;
-import dev.iqux.hlvpack.enhancement.Armor;
-import dev.iqux.hlvpack.enhancement.Weapon;
-import dev.iqux.hlvpack.utils.Config;
-import dev.iqux.hlvpack.utils.Random;
-import dev.iqux.hlvpack.utils.User;
-import dev.iqux.hlvpack.utils.Utils;
+import dev.iqux.vina.Enhancement;
+import dev.iqux.vina.enhancement.Armor;
+import dev.iqux.vina.enhancement.Weapon;
+import dev.iqux.vina.utils.Config;
+import dev.iqux.vina.utils.Random;
+import dev.iqux.vina.utils.User;
+import dev.iqux.vina.utils.Utils;
 
 public class EnhanceUI {
 

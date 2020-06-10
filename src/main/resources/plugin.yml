@@ -1,7 +1,7 @@
-main: dev.iqux.hlvpack.App
-name: HLVPack
+main: dev.iqux.vina.App
+name: VinaPack
 author: HlV_Is_Me
-descriptions: HlV pack plugin
+descriptions: vina pack plugin
 version: 0.1
 depend: [NBTAPI]
 
