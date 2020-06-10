@@ -117,10 +117,13 @@ public class Enhancement {
         String[] name   = Utils.getItemName(item).split(" ");
         String lastName = name[name.length -1];
 
-        if (ChatColor.stripColor(lastName).matches("^[0-9+]+$")) {
+        if (ChatColor.stripColor(lastName).matches("^([0-9+\\[\\]])+$")) {
             name[name.length -1] = "";
 
-            String itemName = String.join(" ", name).concat(levelColor);
+            String itemName = String.join(" ", name)
+            .concat(Utils.color("&r["))
+            .concat(levelColor)
+            .concat(Utils.color("&r]"));
 
             return Utils.setItemName(item, itemName);
         }
