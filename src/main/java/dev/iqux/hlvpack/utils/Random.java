@@ -1,4 +1,4 @@
-package dev.iqux.rpgpack.utils;
+package dev.iqux.hlvpack.utils;
 
 public class Random {
 

@@ -1,4 +1,4 @@
-package dev.iqux.rpgpack.utils;
+package dev.iqux.hlvpack.utils;
 
 import java.util.ArrayList;
 import java.util.List;

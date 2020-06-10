@@ -1,7 +1,7 @@
-main: dev.iqux.rpgpack.App
-name: RPGPack
+main: dev.iqux.hlvpack.App
+name: HLVPack
 author: HlV_Is_Me
-descriptions: hehe rpg plugin brrr
+descriptions: HlV pack plugin
 version: 0.1
 depend: [NBTAPI]
 
@@ -13,7 +13,7 @@ commands:
     aliases: [sc]
     descriptions: Set charm for protect stats of item
   setpowder:
-    aliases: [slp]
+    aliases: [sl]
     descriptions: Set lucky powder for increase percent rate success when enchance
   showenhance:
     aliases: [cuonghoa]

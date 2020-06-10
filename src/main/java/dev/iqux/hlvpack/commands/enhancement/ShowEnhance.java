@@ -1,4 +1,4 @@
-package dev.iqux.rpgpack.commands.enhancement;
+package dev.iqux.hlvpack.commands.enhancement;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -6,8 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import dev.iqux.rpgpack.ui.enhancement.EnhanceUI;
-// import dev.iqux.rpgpack.utils.Plugin;
+import dev.iqux.hlvpack.ui.enhancement.EnhanceUI;
 
 public class ShowEnhance implements CommandExecutor {
 

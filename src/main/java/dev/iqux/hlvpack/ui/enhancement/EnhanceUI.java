@@ -1,4 +1,4 @@
-package dev.iqux.rpgpack.ui.enhancement;
+package dev.iqux.hlvpack.ui.enhancement;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -8,13 +8,13 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import dev.iqux.rpgpack.Enhancement;
-import dev.iqux.rpgpack.enhancement.Armor;
-import dev.iqux.rpgpack.enhancement.Weapon;
-import dev.iqux.rpgpack.utils.Config;
-import dev.iqux.rpgpack.utils.Random;
-import dev.iqux.rpgpack.utils.User;
-import dev.iqux.rpgpack.utils.Utils;
+import dev.iqux.hlvpack.Enhancement;
+import dev.iqux.hlvpack.enhancement.Armor;
+import dev.iqux.hlvpack.enhancement.Weapon;
+import dev.iqux.hlvpack.utils.Config;
+import dev.iqux.hlvpack.utils.Random;
+import dev.iqux.hlvpack.utils.User;
+import dev.iqux.hlvpack.utils.Utils;
 
 public class EnhanceUI {
 

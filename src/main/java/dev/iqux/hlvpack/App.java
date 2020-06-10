@@ -1,11 +1,11 @@
-package dev.iqux.rpgpack;
+package dev.iqux.hlvpack;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import dev.iqux.rpgpack.commands.enhancement.*;
-import dev.iqux.rpgpack.listeners.InventoryClick;
-import dev.iqux.rpgpack.listeners.InventoryClose;
-import dev.iqux.rpgpack.utils.Plugin;
+import dev.iqux.hlvpack.commands.enhancement.*;
+import dev.iqux.hlvpack.listeners.InventoryClick;
+import dev.iqux.hlvpack.listeners.InventoryClose;
+import dev.iqux.hlvpack.utils.Plugin;
 
 /**
  * Hello world!

@@ -1,6 +1,4 @@
-package dev.iqux.rpgpack.enhancement;
-
-import dev.iqux.rpgpack.Enhancement;
+package dev.iqux.hlvpack.enhancement;
 
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -8,8 +6,9 @@ import org.bukkit.inventory.ItemStack;
 import de.tr7zw.nbtapi.NBTCompoundList;
 import de.tr7zw.nbtapi.NBTItem;
 import de.tr7zw.nbtapi.NBTListCompound;
-import dev.iqux.rpgpack.utils.Config;
-import dev.iqux.rpgpack.utils.Utils;
+import dev.iqux.hlvpack.Enhancement;
+import dev.iqux.hlvpack.utils.Config;
+import dev.iqux.hlvpack.utils.Utils;
 
 public class Armor extends Enhancement
 {

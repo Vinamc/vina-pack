@@ -2,10 +2,16 @@
 broadcast_success_after_level: 8
 
 level:
-  color: "&6&l+"
+  color: "&6&l"
+  weapon_lore:
+    - "lore 1"
+    - "lore 2"
+  armor_lore:
+    - "lore 1"
+    - "lore 2"
 
   '1':
-    success_chance: 90
+    success_chance: 100
     armor_increase: 1
     weapon_increase: 1
 
@@ -79,7 +85,7 @@ level:
     armor_increase: 20
     weapon_increase: 20
 
-message_prefix: "[&6VinaMC&r] "
+message_prefix: "[&6&lVinaMC&r] "
 
 message:
   enhance_success: "&aCường hóa thành công"

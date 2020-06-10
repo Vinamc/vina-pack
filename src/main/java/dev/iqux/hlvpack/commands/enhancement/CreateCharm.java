@@ -1,4 +1,4 @@
-package dev.iqux.rpgpack.commands.enhancement;
+package dev.iqux.hlvpack.commands.enhancement;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,9 +7,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import dev.iqux.rpgpack.Enhancement;
-import dev.iqux.rpgpack.utils.Config;
-import dev.iqux.rpgpack.utils.User;
+import dev.iqux.hlvpack.Enhancement;
+import dev.iqux.hlvpack.utils.Config;
+import dev.iqux.hlvpack.utils.User;
 
 public class CreateCharm implements CommandExecutor {
 

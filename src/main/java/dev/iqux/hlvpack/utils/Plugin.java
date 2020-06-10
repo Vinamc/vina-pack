@@ -1,4 +1,4 @@
-package dev.iqux.rpgpack.utils;
+package dev.iqux.hlvpack.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
