@@ -122,7 +122,7 @@ public class EnhanceUI {
             inv.setItem(15 -1, item);
 
             if (currentLevel + 1 >= Config.getInt("broadcast_success_after_level")) {
-                 player.sendMessage(
+                Utils.bc(
                     Config.message("broadcast_success_message")
                     .replace("%player_name%", player.getDisplayName())
                     .replace("%item_name%", Utils.getItemName(item))
@@ -148,7 +148,7 @@ public class EnhanceUI {
             inv.setItem(15 -1, item);
 
             if (currentLevel + 1 >= Config.getInt("broadcast_success_after_level")) {
-                 player.sendMessage(
+                 Utils.bc(
                     Config.message("broadcast_success_message")
                     .replace("%player_name%", player.getDisplayName())
                     .replace("%item_name%", Utils.getItemName(item))
