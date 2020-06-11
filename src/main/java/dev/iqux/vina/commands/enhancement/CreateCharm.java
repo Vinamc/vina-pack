@@ -27,7 +27,7 @@ public class CreateCharm implements CommandExecutor {
         Player player   = (Player) sender;
         ItemStack charm = User.getPlayerHandItem(player);
 
-        if (! (player.hasPermission("rpgpack.admin.createcharm"))) {
+        if (! (player.hasPermission("vinapack.admin.createcharm"))) {
             player.sendMessage(Config.message("missing_permission"));
             return false;
         }

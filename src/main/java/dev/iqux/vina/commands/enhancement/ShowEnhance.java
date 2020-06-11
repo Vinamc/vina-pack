@@ -23,7 +23,7 @@ public class ShowEnhance implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if (! (player.hasPermission("rpgpack.use.gui"))) {
+        if (! (player.hasPermission("vinapack.use.gui"))) {
             player.sendMessage("You dont have permission!");
             return false;
         }

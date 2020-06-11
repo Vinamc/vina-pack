@@ -28,7 +28,7 @@ public class CreatePowder implements CommandExecutor {
         Player player   = (Player) sender;
         ItemStack powder = User.getPlayerHandItem(player);
 
-        if (! (player.hasPermission("rpgpack.admin.createpowder"))) {
+        if (! (player.hasPermission("vinapack.admin.createpowder"))) {
             player.sendMessage(Config.message("missing_permission"));
             return false;
         }

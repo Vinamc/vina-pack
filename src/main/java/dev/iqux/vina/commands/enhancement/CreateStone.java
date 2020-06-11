@@ -28,7 +28,7 @@ public class CreateStone implements CommandExecutor {
         Player player   = (Player) sender;
         ItemStack stone = User.getPlayerHandItem(player);
 
-        if (! (player.hasPermission("rpgpack.admin.createstone"))) {
+        if (! (player.hasPermission("vinapack.admin.createstone"))) {
             player.sendMessage(Config.message("missing_permission"));
             return false;
         }
