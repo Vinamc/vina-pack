@@ -1,5 +1,5 @@
 
-<p style="text-align: center;"><img src="https://user-images.githubusercontent.com/41188285/84378395-4d9ee500-ac0e-11ea-8dbf-19f170232232.png" alt="vinamc" width="700"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/41188285/84378395-4d9ee500-ac0e-11ea-8dbf-19f170232232.png" alt="vinamc" width="700"/></p>
 
 # Vina Plugin
 This plugin belongs with [VinaMC](https://vinamc.com)
