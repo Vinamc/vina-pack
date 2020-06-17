@@ -9,6 +9,8 @@ import dev.iqux.vina.utils.Config;
 
 public class SetLucky extends SetCommand {
 
+    public static final String name = "setlucky";
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (! this.validateSender(sender)) {
