@@ -2,7 +2,7 @@ package dev.iqux.vina.utils;
 
 public class Random {
 
-    public static boolean canSuccess(float rate) {
+    public static boolean canSuccess(Double rate) {
         rate *= 100;
 
         if (rate >= random_int(1, 10000)) {
