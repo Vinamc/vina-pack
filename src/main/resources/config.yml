@@ -1,19 +1,16 @@
 
 
 enhancement:
-
+  item:
+    name: "%item_name% [%item_level_prefix%%item_level%]"
+    lore:
+      stats_damage: "Sát thương cơ bản: %basic_damage% ( +%enhance_damage% )"
+      stats_armor: "Giáp cơ bản: %basic_armor% ( +%enhance_armor% )"
+      stats_health: "Máu cơ bản: %basic_health% ( +%enhance_health% )"
 
 broadcast_success_after_level: 8
 
 level:
-  color: "&6&l"
-  weapon_lore:
-    - "lore 1"
-    - "lore 2"
-  armor_lore:
-    - "lore 1"
-    - "lore 2"
-
   '1':
     success_chance: 100
     armor_increase: 1
