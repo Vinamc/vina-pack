@@ -2,6 +2,10 @@ package dev.iqux.vina.utils;
 
 public class Config {
 
+    public static Double getDouble(String key) {
+        return Plugin.plugin.getConfig().getDouble(key);
+    }
+
     public static String getString(String key) {
         return Plugin.plugin.getConfig().getString(key);
     }
