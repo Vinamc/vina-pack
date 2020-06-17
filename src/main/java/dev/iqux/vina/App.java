@@ -2,6 +2,7 @@ package dev.iqux.vina;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import dev.iqux.vina.services.commands.CommandHandler;
 import dev.iqux.vina.utils.Plugin;
 
 /**
@@ -16,6 +17,7 @@ public class App extends JavaPlugin
         saveDefaultConfig();
 
         this.bindPluginStatic();
+        this.registerCommands();
 
         getLogger().info("Enable RPGBag Success");
     }
@@ -23,6 +25,14 @@ public class App extends JavaPlugin
     @Override
     public void onDisable() {
         getLogger().info("See you again, SpigotMC!");
+    }
+
+    private void registerCommands() {
+        CommandHandler handler = new CommandHandler();
+
+        this.getCommand("vina").setExecutor(handler);
+
+        handler.registerCommands();
     }
 
 
