@@ -2,7 +2,7 @@
 
 enhancement:
   item:
-    name: "%item_name% [%item_level_prefix%%item_level%]"
+    name: "%item_name% &r[&6&l%item_level_prefix%%item_level%&r]"
     lore:
       stats_damage: "Sát thương cơ bản: %basic_damage% ( +%enhance_damage% )"
       stats_armor: "Giáp cơ bản: %basic_armor% ( +%enhance_armor% )"
@@ -92,7 +92,7 @@ message:
   enhance_success: "&aCường hóa thành công"
   enhance_failed: "&cCường hóa thất bại"
   command_doesnt_exists: "&4Lệnh không tồn tại"
-  command_invalid: "&4Lệnh không hợp lệ"
+  command_invalid: "&4Thiếu tham số"
   command_must_send_ingame: "&4chỉ thực hiện được lệnh này trong game"
   missing_permission: "&4Thiếu quyền sử dụng lệnh này."
   hand_empty: "&3Hãy giữ item trên tay để dùng lệnh này"
