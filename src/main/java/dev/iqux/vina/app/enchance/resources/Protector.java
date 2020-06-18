@@ -16,4 +16,8 @@ public class Protector extends EnhanceResource {
 
         return nbti.getItem();
     }
+
+    public static boolean isValidItem(ItemStack item) {
+        return isCurrentType(item, TYPE);
+    }
 }

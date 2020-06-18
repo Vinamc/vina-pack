@@ -28,4 +28,8 @@ public class Lucky extends EnhanceResource {
 
         return nbti.getDouble("chance");
     }
+
+    public static boolean isValidItem(ItemStack item) {
+        return isCurrentType(item, TYPE);
+    }
 }
