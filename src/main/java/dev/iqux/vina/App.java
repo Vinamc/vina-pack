@@ -3,6 +3,8 @@ package dev.iqux.vina;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import dev.iqux.vina.services.commands.CommandHandler;
+import dev.iqux.vina.services.listeners.InventoryClick;
+import dev.iqux.vina.services.listeners.InventoryClose;
 import dev.iqux.vina.utils.Plugin;
 
 /**
@@ -18,6 +20,7 @@ public class App extends JavaPlugin
 
         this.bindPluginStatic();
         this.registerCommands();
+        this.registerListeners();
 
         getLogger().info("Enable RPGBag Success");
     }
@@ -38,5 +41,10 @@ public class App extends JavaPlugin
 
     private void bindPluginStatic() {
         Plugin.bind(this);
+    }
+
+    private void registerListeners() {
+        new InventoryClick();
+        new InventoryClose();
     }
 }
