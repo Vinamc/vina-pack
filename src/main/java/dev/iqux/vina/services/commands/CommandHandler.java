@@ -10,7 +10,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import dev.iqux.vina.contracts.command.CommandInterface;
-import dev.iqux.vina.services.commands.enchance.SetStone;
+import dev.iqux.vina.services.commands.enchance.*;
 import dev.iqux.vina.utils.Config;
 import dev.iqux.vina.utils.Utils;
 
@@ -46,10 +46,9 @@ public class CommandHandler implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length < 1) {
+            sender.sendMessage(Utils.color("[&6&lVina Pack&r] &aDevelopment by &6HlV&r for &6&lvinamc.com"));
             return false;
         }
-
-        Utils.bc(commands.toString());
 
         label = args[0];
 
@@ -61,7 +60,7 @@ public class CommandHandler implements CommandExecutor {
         String[] newArgs = new String[args.length -1];
 
         for (int i = 1; i < args.length; i++) {
-            newArgs[i] = args[i];
+            newArgs[i -1]= args[i];
         }
 
         return getExcutor(args[0]).onCommand(sender, command, label, newArgs);
@@ -69,5 +68,11 @@ public class CommandHandler implements CommandExecutor {
 
     public void registerCommands() {
         register(SetStone.name, new SetStone());
+        register(SetLucky.name, new SetLucky());
+        register(SetProtector.name, new SetProtector());
+        register(SetBasicArmor.name, new SetBasicArmor());
+        register(SetBasicHealth.name, new SetBasicHealth());
+        register(SetBasicDamage.name, new SetBasicDamage());
+        register(ShowEnhance.name, new ShowEnhance());
     }
 }

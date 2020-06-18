@@ -17,8 +17,8 @@ public class SetLucky extends SetCommand {
             return false;
         }
 
-        if (args[0] == null) {
-            Config.message("invalid_data_type");
+        if (args.length < 1) {
+            this.alertInvalidCommand(sender);
             return false;
         }
 
