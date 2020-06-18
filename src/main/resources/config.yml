@@ -1,4 +1,6 @@
+broadcast_success_after_level: 8
 
+message_prefix: "[&6&lVinaMC&r] "
 
 enhancement:
   item:
@@ -8,7 +10,17 @@ enhancement:
       stats_armor: "Giáp cơ bản: %basic_armor% ( +%enhance_armor% )"
       stats_health: "Máu cơ bản: %basic_health% ( +%enhance_health% )"
 
-broadcast_success_after_level: 8
+message:
+  enhance_success: "&aCường hóa thành công"
+  enhance_failed: "&cCường hóa thất bại"
+  command_doesnt_exists: "&4Lệnh không tồn tại"
+  command_invalid: "&4Thiếu tham số"
+  command_must_send_ingame: "&4chỉ thực hiện được lệnh này trong game"
+  missing_permission: "&4Thiếu quyền sử dụng lệnh này."
+  hand_empty: "&3Hãy giữ item trên tay để dùng lệnh này"
+  invalid_data_type: "&cTham số không hợp lệ"
+  number_must_positive: "&cTham số không được nhỏ hơn 0"
+  broadcast_success_message: "&2Chúc mừng %player_name% cường hóa thành công %item_name%&r lên cấp %item_level%"
 
 level:
   '1':
@@ -100,22 +112,3 @@ level:
     armor_increase: 20
     health_increase: 1
     weapon_increase: 20
-
-message_prefix: "[&6&lVinaMC&r] "
-
-message:
-  enhance_success: "&aCường hóa thành công"
-  enhance_failed: "&cCường hóa thất bại"
-  command_doesnt_exists: "&4Lệnh không tồn tại"
-  command_invalid: "&4Thiếu tham số"
-  command_must_send_ingame: "&4chỉ thực hiện được lệnh này trong game"
-  missing_permission: "&4Thiếu quyền sử dụng lệnh này."
-  hand_empty: "&3Hãy giữ item trên tay để dùng lệnh này"
-  invalid_data_type: "&cTham số không hợp lệ"
-  number_must_positive: "&cTham số không được nhỏ hơn 0"
-  broadcast_success_message: "&2Chúc mừng %player_name% cường hóa thành công %item_name%&r lên cấp %item_level%"
-
-  command:
-    create_stone: "Dùng /setstone"
-    create_charm: "Dùng /setcharm"
-    create_powder: "Dùng /setpowder <rate_percent>"
