@@ -101,13 +101,11 @@ public class Armor extends Enhancement {
         }
 
         if (!hasMatchLore) {
-            return item;
+            lores.add(replaceLore(Utils.color(loreHealth), basicValue, enhanceValue));
+            return Utils.setItemLore(item, lores);
         }
 
-        lores.set(i, Utils.color(loreHealth)
-        .replace("%basic_health%", Double.toString(basicValue))
-        .replace("%enhance_health%", Double.toString(enhanceValue)));
-
+        lores.set(i, replaceLore(Utils.color(loreHealth), basicValue, enhanceValue));
         return Utils.setItemLore(item, lores);
     }
 
@@ -125,7 +123,7 @@ public class Armor extends Enhancement {
         }
 
         int i;
-        String regexMatch   = replaceLorePattern(loreHealth);
+        String regexMatch   = replaceLorePattern(loreArmor);
         Boolean hasMatchLore = false;
 
         for (i = 0; i < lores.size(); i++) {
@@ -135,12 +133,11 @@ public class Armor extends Enhancement {
         }
 
         if (!hasMatchLore) {
-            return item;
+            lores.add(replaceLore(Utils.color(loreArmor), basicValue, enhanceValue));
+            return Utils.setItemLore(item, lores);
         }
 
-        lores.set(i, Utils.color(loreArmor)
-        .replace("%basic_armor%", Double.toString(basicValue))
-        .replace("%enhance_armor%", Double.toString(enhanceValue)));
+        lores.set(i, replaceLore(Utils.color(loreArmor), basicValue, enhanceValue));
 
         return Utils.setItemLore(item, lores);
     }

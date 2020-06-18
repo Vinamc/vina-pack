@@ -65,12 +65,11 @@ public class Weapon extends Enhancement {
         }
 
         if (!hasMatchLore) {
-            return item;
+            lores.add(replaceLore(Utils.color(loreDamage), basicValue, enhanceValue));
+            return Utils.setItemLore(item, lores);
         }
 
-        lores.set(i, Utils.color(loreDamage)
-        .replace("%basic_damage%", Double.toString(basicValue))
-        .replace("%enhance_damage%", Double.toString(enhanceValue)));
+        lores.set(i, replaceLore(Utils.color(loreDamage), basicValue, enhanceValue));
 
         return Utils.setItemLore(item, lores);
     }
