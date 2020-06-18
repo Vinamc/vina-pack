@@ -74,6 +74,10 @@ public class Weapon extends Enhancement {
         return Utils.setItemLore(item, lores);
     }
 
+    public static Double getTotalDamage(ItemStack item) {
+        return getBasicDamage(item) + getEnhanceDamage(item);
+    }
+
     protected static Double getBasicDamage(ItemStack item) {
         return getStats(item, "damage.basic");
     }
