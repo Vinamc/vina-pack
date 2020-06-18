@@ -3,6 +3,7 @@ package dev.iqux.vina;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import dev.iqux.vina.services.commands.CommandHandler;
+import dev.iqux.vina.services.listeners.EntityDamageByEntity;
 import dev.iqux.vina.services.listeners.InventoryClick;
 import dev.iqux.vina.services.listeners.InventoryClose;
 import dev.iqux.vina.utils.Plugin;
@@ -46,5 +47,6 @@ public class App extends JavaPlugin
     private void registerListeners() {
         new InventoryClick();
         new InventoryClose();
+        new EntityDamageByEntity();
     }
 }
