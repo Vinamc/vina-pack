@@ -31,6 +31,10 @@ abstract public class BaseCommand implements CommandInterface, CommandExecutor {
         return sender.hasPermission(this.permission());
     }
 
+    protected void alertInvalidCommand(CommandSender sender) {
+        sender.sendMessage(Config.message("command_invalid"));
+    }
+
     protected void alertPermissionRequired(CommandSender sender) {
         sender.sendMessage(Config.message("missing_permission"));
     }
