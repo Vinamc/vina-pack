@@ -78,6 +78,7 @@ public class Enhancement {
 
     private static String getDisplayNamePattern() {
         String s = Config.getString("enhancement.item.name");
+        s = Utils.color(s);
         s = Utils.pregQuote(s);
 
         return s.replace("%item_name%", "(.*?)")
