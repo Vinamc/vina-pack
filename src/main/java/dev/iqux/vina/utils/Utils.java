@@ -29,6 +29,16 @@ public class Utils {
         Bukkit.broadcastMessage(Utils.color(msg));
     }
 
+    public static String pregQuote(String s) {
+        String[] quotes = {"\\", "[", "]", "(", ")", "|", "*", "+", "?", "{", "}"};
+
+        for (String quote : quotes) {
+            s = s.replace(quote, "\\".concat(quote));
+        }
+
+        return s;
+    }
+
     public static boolean isAirItem(ItemStack item) {
         return item == null || item.getType().name().equals(Material.AIR.name());
     }
@@ -97,5 +107,23 @@ public class Utils {
 
     public static Boolean isMaterial(ItemStack item, Material material) {
         return item.getType().name().equals(material.name());
+    }
+
+    public static List<String> getItemLore(ItemStack item) {
+        if (item.hasItemMeta() && item.getItemMeta().hasLore()) {
+            return item.getItemMeta().getLore();
+        }
+
+        return null;
+    }
+
+    public static ItemStack setItemLore(ItemStack item, List<String> lore) {
+        ItemMeta meta = item.getItemMeta();
+
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+
+        return item;
     }
 }
