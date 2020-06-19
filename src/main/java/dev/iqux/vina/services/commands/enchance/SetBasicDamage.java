@@ -41,6 +41,6 @@ public class SetBasicDamage extends SetCommand {
 
     @Override
     protected String permission() {
-        return "vina.command.enchance.setstone";
+        return "vina.command.enchance.setbasicdamage";
     }
 }

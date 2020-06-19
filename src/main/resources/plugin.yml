@@ -14,4 +14,10 @@ permissions:
   vina.admin:
     description: Gives access to everything!
     children:
-      vina.command.enchance.createstone: true
+      vina.command.enchance.show: true
+      vina.command.enchance.setlucky: true
+      vina.command.enchance.setstone: true
+      vina.command.enchance.setprotector: true
+      vina.command.enchance.setbasicarmor: true
+      vina.command.enchance.setbasicdamage: true
+      vina.command.enchance.setbasichealth: true

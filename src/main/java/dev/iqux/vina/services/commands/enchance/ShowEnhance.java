@@ -24,6 +24,6 @@ public class ShowEnhance extends BaseCommand {
 
     @Override
     protected String permission() {
-        return "vina.command.enchance.use";
+        return "vina.command.enchance.show";
     }
 }
