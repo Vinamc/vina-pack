@@ -10,16 +10,23 @@ This plugin belongs with [VinaMC](https://vinamc.com)
 - Upgrade weapon, armor with special stone
 
 ## commands
-- `/setstone` (Alias `/ss`) Set stone for enchance some thing like armor, weapon, whatever is it
-- `/setcharm` (Alias `/sc`) Set charm for protect stats of item
-- `/setpowder` `<success_rate>` (Alias `/sl`) Set lucky powder for increase percent rate success when enchance
-- `/showenhance` (Alias `/cuonghoa`) To show enchance gui
+- `/vina` Base command, alias `/vn`
+- `/vina setstone` Set stone for enchance some thing like armor, weapon
+- `/vina setcharm` Set charm for protect stats of item
+- `/vina setlucky <rate>` Set lucky powder for increase percent rate success when enhance
+- `/vina setbasichealth <number>` Set default health for item
+- `/vina setbasicdamage <number>` Set default damage for item
+- `/vina setbasicarmor <number>` Set default armor for item
 
 ## Permissions
-- `vinapack.admin.createstone`
-- `vinapack.admin.createpowder`
-- `vinapack.admin.createcharm`
-- `vinapack.use.gui`
+- `vina.admin`
+- `vina.command.enchance.show` show GUI enhance for player
+- `vina.command.enchance.setlucky`
+- `vina.command.enchance.setstone`
+- `vina.command.enchance.setprotector`
+- `vina.command.enchance.setbasicarmor`
+- `vina.command.enchance.setbasicdamage`
+- `vina.command.enchance.setbasichealth`
 
 ## Author
 <boytunghc@gmail.com>
