@@ -11,6 +11,7 @@ This plugin belongs with [VinaMC](https://vinamc.com)
 
 ## commands
 - `/vina` Base command, alias `/vn`
+- `/vina showenhance` Show gui enhance item
 - `/vina setstone` Set stone for enchance some thing like armor, weapon
 - `/vina setcharm` Set charm for protect stats of item
 - `/vina setlucky <rate>` Set lucky powder for increase percent rate success when enhance
