@@ -46,7 +46,7 @@ public class CommandHandler implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (args.length < 1) {
-            sender.sendMessage(Utils.color("[&6&lVina Pack&r] &aDevelopment by &6HlV&r for &6&lvinamc.com"));
+            sender.sendMessage(Utils.color("[&6&lVina Pack&r] &aDevelopment by &6HlV&a for &6&lvinamc.com"));
             return false;
         }
 
