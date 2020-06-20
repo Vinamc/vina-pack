@@ -6,9 +6,9 @@ enhancement:
   item:
     name: "%item_name% &r[&6&l%item_level_prefix%%item_level%&r]"
     lore:
-      stats_damage: "Sát thương cơ bản: %basic_damage% ( +%enhance_damage% )"
-      stats_armor: "Giáp cơ bản: %basic_armor% ( +%enhance_armor% )"
-      stats_health: "Máu cơ bản: %basic_health% ( +%enhance_health% )"
+      stats_damage: "&7Sát thương cơ bản: &a%basic_damage% &e( +%enhance_damage% )"
+      stats_armor: "&7Giáp cơ bản: &a%basic_armor% &e( +%enhance_armor% )"
+      stats_health: "&7Máu cơ bản: &a%basic_health% &e( +%enhance_health% )"
 
 message:
   enhance_success: "&aCường hóa thành công"
@@ -25,90 +25,90 @@ message:
 level:
   '1':
     success_chance: 100
-    armor_increase: 1
-    health_increase: 1
-    weapon_increase: 1
+    armor_increase: 2
+    health_increase: 4
+    weapon_increase: 5
 
   '2':
     success_chance: 80
-    armor_increase: 1
-    health_increase: 1
-    weapon_increase: 1
+    armor_increase: 2
+    health_increase: 4
+    weapon_increase: 5
 
   '3':
     success_chance: 70
-    armor_increase: 1
-    health_increase: 1
-    weapon_increase: 1
+    armor_increase: 2
+    health_increase: 4
+    weapon_increase: 5
 
   '4':
     success_chance: 60
-    weapon_increase: 1
-    health_increase: 1
-    armor_increase: 1
+    weapon_increase: 5
+    health_increase: 4
+    armor_increase: 2
 
   '5':
     success_chance: 55
-    armor_increase: 1
-    health_increase: 1
-    weapon_increase: 1
+    armor_increase: 2
+    health_increase: 4
+    weapon_increase: 5
 
   '6':
     success_chance: 50
     armor_increase: 5
-    health_increase: 1
-    weapon_increase: 5
+    health_increase: 10
+    weapon_increase: 10
 
   '7':
     success_chance: 45
     armor_increase: 5
-    health_increase: 1
-    weapon_increase: 5
+    health_increase: 10
+    weapon_increase: 10
 
   '8':
     success_chance: 40
     armor_increase: 5
-    health_increase: 1
-    weapon_increase: 5
+    health_increase: 10
+    weapon_increase: 10
 
   '9':
     success_chance: 35
     armor_increase: 5
-    health_increase: 1
-    weapon_increase: 5
+    health_increase: 10
+    weapon_increase: 10
 
   '10':
     success_chance: 30
-    armor_increase: 10
-    health_increase: 1
+    armor_increase: 5
+    health_increase: 10
     weapon_increase: 10
 
   '11':
     success_chance: 25
     armor_increase: 10
-    health_increase: 1
-    weapon_increase: 10
+    health_increase: 20
+    weapon_increase: 15
 
   '12':
     success_chance: 20
     armor_increase: 10
-    health_increase: 1
-    weapon_increase: 10
+    health_increase: 20
+    weapon_increase: 15
 
   '13':
     success_chance: 15
-    armor_increase: 15
-    health_increase: 1
+    armor_increase: 10
+    health_increase: 20
     weapon_increase: 15
 
   '14':
     success_chance: 10
-    armor_increase: 15
-    health_increase: 1
+    armor_increase: 10
+    health_increase: 20
     weapon_increase: 15
 
   '15':
     success_chance: 5
-    armor_increase: 20
-    health_increase: 1
-    weapon_increase: 20
+    armor_increase: 10
+    health_increase: 20
+    weapon_increase: 15
