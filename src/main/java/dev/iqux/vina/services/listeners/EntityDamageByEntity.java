@@ -19,15 +19,16 @@ public class EntityDamageByEntity implements Listener {
 
     @EventHandler
     public void handle(EntityDamageByEntityEvent e) {
-        if (! (e.getDamager() instanceof Player)) {
-            return;
+
+        Double totalDamage = 0.0;
+
+        if (e.getDamager() instanceof Player) {
+            Player damager = (Player) e.getDamager();
+
+            totalDamage = e.getDamage() + Weapon.getTotalDamage(
+                damager.getInventory().getItemInMainHand()
+            );
         }
-
-        Player damager = (Player) e.getDamager();
-
-        Double totalDamage = e.getDamage() + Weapon.getTotalDamage(
-            damager.getInventory().getItemInMainHand()
-        );
 
         if (! (e.getEntity() instanceof Player)) {
             e.setDamage(totalDamage);
