@@ -63,6 +63,10 @@ public class Enhancement {
     }
 
     protected static Double getStats(ItemStack item, String key) {
+        if (Utils.isAirItem(item)) {
+            return 0.0;
+        }
+
         NBTItem nbti = Utils.toNBTItem(item);
 
         return nbti.getDouble(key);

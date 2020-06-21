@@ -18,8 +18,11 @@ public class EquipArmor {
         Player p       = (Player) e.getWhoClicked();
         ItemStack item = getItem(e);
 
-        if (isEquipArmor(e)) {
-            p.setMaxHealth(p.getMaxHealth() + Armor.getTotalHealth(item));
+        Double health = p.getMaxHealth() + Armor.getTotalHealth(item);
+
+        if (isEquipArmor(e) && health >= 20) {
+            
+            p.setMaxHealth(health);
         }
     }
 
@@ -27,24 +30,27 @@ public class EquipArmor {
         Player p       = (Player) e.getWhoClicked();
         ItemStack item = getItem(e);
 
-        if (isDeEquipArmor(e)) {
-            p.setMaxHealth(p.getMaxHealth() - Armor.getTotalHealth(item));
+        Double health = p.getMaxHealth() - Armor.getTotalHealth(item);
+
+        if (isDeEquipArmor(e) && health >= 20) {
+            p.setMaxHealth(health);
         }
     }
 
     protected static boolean isEquipArmor(InventoryClickEvent e) {
 
         ItemStack item = e.getCurrentItem();
+        SlotType type  = e.getSlotType();
 
-        if (e.isShiftClick() && e.getSlotType().equals(SlotType.CONTAINER) && !Utils.isAirItem(item)) {
+        if (e.isShiftClick() && (type.equals(SlotType.CONTAINER) || type.equals(SlotType.QUICKBAR)) && !Utils.isAirItem(item)) {
             return true;
         }
 
-        if (e.getSlotType().equals(SlotType.ARMOR) && e.isShiftClick()) {
+        if (type.equals(SlotType.ARMOR) && e.isShiftClick()) {
             return false;
         }
 
-        if (! e.getSlotType().equals(SlotType.ARMOR) || Utils.isAirItem(e.getCursor())) {
+        if (! type.equals(SlotType.ARMOR) || Utils.isAirItem(e.getCursor())) {
             return false;
         }
 
@@ -54,16 +60,17 @@ public class EquipArmor {
     protected static boolean isDeEquipArmor(InventoryClickEvent e) {
 
         ItemStack item = e.getCurrentItem();
+        SlotType type  = e.getSlotType();
 
-        if (e.isShiftClick() && e.getSlotType().equals(SlotType.ARMOR) && !Utils.isAirItem(item)) {
+        if (e.isShiftClick() && type.equals(SlotType.ARMOR) && !Utils.isAirItem(item)) {
             return true;
         }
 
-        if (e.getSlotType().equals(SlotType.CONTAINER) && e.isShiftClick()){
+        if ((type.equals(SlotType.CONTAINER) || type.equals(SlotType.QUICKBAR)) && e.isShiftClick()){
             return false;
         }
 
-        if (! e.getSlotType().equals(SlotType.ARMOR) || Utils.isAirItem(item)) {
+        if (! type.equals(SlotType.ARMOR) || Utils.isAirItem(item)) {
             return false;
         }
 
