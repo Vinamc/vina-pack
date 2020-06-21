@@ -7,7 +7,6 @@ import org.bukkit.inventory.ItemStack;
 
 import dev.iqux.vina.utils.Config;
 import dev.iqux.vina.utils.Utils;
-import net.md_5.bungee.api.ChatColor;
 
 public class Weapon extends Enhancement {
 
