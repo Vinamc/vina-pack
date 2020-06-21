@@ -110,7 +110,7 @@ public class Utils {
     }
 
     public static List<String> getItemLore(ItemStack item) {
-        if (item.hasItemMeta() && item.getItemMeta().hasLore()) {
+        if (item.getItemMeta().hasLore()) {
             return item.getItemMeta().getLore();
         }
 

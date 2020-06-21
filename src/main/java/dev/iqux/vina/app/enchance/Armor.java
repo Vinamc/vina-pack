@@ -143,7 +143,7 @@ public class Armor extends Enhancement {
     }
 
     private static String replaceLorePattern(String lore) {
-        lore = Utils.color(lore);
+        lore = ChatColor.stripColor(Utils.color(lore));
         lore = Utils.pregQuote(lore);
 
         return lore

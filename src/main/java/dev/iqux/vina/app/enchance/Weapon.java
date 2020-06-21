@@ -59,7 +59,7 @@ public class Weapon extends Enhancement {
         Boolean hasMatchLore = false;
 
         for (i = 0; i < lores.size(); i++) {
-            if (ChatColor.stripColor(lores.get(i)).matches(regexMatch)) {
+            if (lores.get(i).matches(regexMatch)) {
                 hasMatchLore = true; break;
             }
         }
@@ -87,7 +87,7 @@ public class Weapon extends Enhancement {
     }
 
     private static String replaceLorePattern(String lore) {
-        lore = ChatColor.stripColor(Utils.color(lore));
+        lore = Utils.color(lore);
         lore = Utils.pregQuote(lore);
 
         return lore
