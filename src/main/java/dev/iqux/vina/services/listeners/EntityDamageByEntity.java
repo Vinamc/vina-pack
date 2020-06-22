@@ -20,13 +20,11 @@ public class EntityDamageByEntity implements Listener {
     @EventHandler
     public void handle(EntityDamageByEntityEvent e) {
 
-        Double totalDamage = 0.0;
+        Double totalDamage = e.getDamage();
 
         if (e.getDamager() instanceof Player) {
-            Player damager = (Player) e.getDamager();
-
-            totalDamage = e.getDamage() + Weapon.getTotalDamage(
-                damager.getInventory().getItemInMainHand()
+            totalDamage += Weapon.getTotalDamage(
+                ((Player) e.getDamager()).getInventory().getItemInMainHand()
             );
         }
 
@@ -42,6 +40,8 @@ public class EntityDamageByEntity implements Listener {
                 totalDamage -= Armor.getTotalArmor(item);
             }
         }
+
+        totalDamage = totalDamage < 0.1 ? 0.1 : totalDamage;
 
         e.setDamage(totalDamage);
     }
