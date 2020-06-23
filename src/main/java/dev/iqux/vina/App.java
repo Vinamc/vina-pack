@@ -32,7 +32,7 @@ public class App extends JavaPlugin
     }
 
     private void registerCommands() {
-        CommandHandler handler = new CommandHandler();
+        CommandHandler handler = new CommandHandler(this);
 
         this.getCommand("vina").setExecutor(handler);
 

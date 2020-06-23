@@ -21,3 +21,4 @@ permissions:
       vina.command.enchance.setbasicarmor: true
       vina.command.enchance.setbasicdamage: true
       vina.command.enchance.setbasichealth: true
+      vina.command.plugin.reload: true
