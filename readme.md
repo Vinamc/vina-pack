@@ -13,11 +13,12 @@ This plugin belongs with [VinaMC](https://vinamc.com)
 - `/vina` Base command, alias `/vn`
 - `/vina showenhance` Show gui enhance item
 - `/vina setstone` Set stone for enchance some thing like armor, weapon
-- `/vina setcharm` Set charm for protect stats of item
+- `/vina setprotector` Set charm for protect stats of item
 - `/vina setlucky <rate>` Set lucky powder for increase percent rate success when enhance
 - `/vina setbasichealth <number>` Set default health for item
 - `/vina setbasicdamage <number>` Set default damage for item
 - `/vina setbasicarmor <number>` Set default armor for item
+- `/vina reload` Reload config plugin
 
 ## Permissions
 - `vina.admin`
@@ -28,6 +29,7 @@ This plugin belongs with [VinaMC](https://vinamc.com)
 - `vina.command.enchance.setbasicarmor`
 - `vina.command.enchance.setbasicdamage`
 - `vina.command.enchance.setbasichealth`
+- `vina.command.plugin.reload`
 
 ## Author
 <boytunghc@gmail.com>
