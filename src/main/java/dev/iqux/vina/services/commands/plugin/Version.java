@@ -10,7 +10,7 @@ import dev.iqux.vina.utils.Utils;
 
 public class Version extends BaseCommand {
 
-    public static String name = "version";
+    protected String[] alias = {"ver"};
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -27,5 +27,10 @@ public class Version extends BaseCommand {
     @Override
     protected String permission() {
         return "";
+    }
+
+    @Override
+    public String getName() {
+        return "version";
     }
 }

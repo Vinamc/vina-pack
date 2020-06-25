@@ -9,7 +9,7 @@ import dev.iqux.vina.utils.Config;
 
 abstract public class BaseCommand implements CommandInterface, CommandExecutor {
 
-    public static String name = "";
+    protected String[] alias = {};
 
     abstract protected String permission();
 
@@ -49,5 +49,10 @@ abstract public class BaseCommand implements CommandInterface, CommandExecutor {
 
     protected boolean isSendFromConsole(CommandSender sender) {
         return !this.isPlayer(sender);
+    }
+
+    public String[] getAlias() {
+
+        return alias;
     }
 }

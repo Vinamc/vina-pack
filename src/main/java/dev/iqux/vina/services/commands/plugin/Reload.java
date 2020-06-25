@@ -9,8 +9,6 @@ import dev.iqux.vina.utils.Config;
 
 public class Reload extends BaseCommand {
 
-    public static String name = "reload";
-
     protected JavaPlugin plugin;
 
     public Reload(JavaPlugin plugin) {
@@ -34,6 +32,11 @@ public class Reload extends BaseCommand {
     @Override
     protected String permission() {
         return "vina.command.plugin.reload";
+    }
+
+    @Override
+    public String getName() {
+        return "reload";
     }
     
 }

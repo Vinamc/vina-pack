@@ -9,7 +9,6 @@ import dev.iqux.vina.utils.Config;
 import dev.iqux.vina.utils.User;
 
 public class SetBasicArmor extends SetCommand {
-    public static final String name = "setbasicarmor";
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -41,5 +40,10 @@ public class SetBasicArmor extends SetCommand {
     @Override
     protected String permission() {
         return "vina.command.enchance.setbasicarmor";
+    }
+
+    @Override
+    public String getName() {
+        return "setbasicarmor";
     }
 }

@@ -9,8 +9,6 @@ import dev.iqux.vina.services.commands.BaseCommand;
 
 public class ShowEnhance extends BaseCommand {
 
-    public static final String name = "showenhance";
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!this.validateSender(sender)) {
@@ -25,5 +23,10 @@ public class ShowEnhance extends BaseCommand {
     @Override
     protected String permission() {
         return "vina.command.enchance.show";
+    }
+
+    @Override
+    public String getName() {
+        return "showenhance";
     }
 }

@@ -8,8 +8,6 @@ import dev.iqux.vina.app.enchance.resources.Protector;
 
 public class SetProtector extends SetCommand {
 
-    public static final String name = "setprotector";
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (! this.validateSender(sender)) {
@@ -28,5 +26,10 @@ public class SetProtector extends SetCommand {
     @Override
     protected String permission() {
         return "vina.command.enchance.setprotector";
+    }
+
+    @Override
+    public String getName() {
+        return "setprotector";
     }
 }

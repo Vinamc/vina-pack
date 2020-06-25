@@ -27,8 +27,20 @@ public class CommandHandler implements CommandExecutor {
 
     private static HashMap<String, CommandInterface> commands = new HashMap<String, CommandInterface>();
 
-    protected static void register(String name, CommandInterface cmd) {
-        commands.put(name, cmd);
+    protected static void register(CommandInterface cmd) {
+
+        commands.put(cmd.getName(), cmd);
+
+        for (String alias : cmd.getAlias()) {
+            commands.put(alias, cmd);
+        }
+    }
+
+    protected static void registerAll(CommandInterface[] cmd)
+    {
+        for (CommandInterface commandInterface : cmd) {
+            register(commandInterface);
+        }
     }
 
     public static boolean exists(String name) {
@@ -76,14 +88,19 @@ public class CommandHandler implements CommandExecutor {
     }
 
     public void registerCommands() {
-        register(SetStone.name, new SetStone());
-        register(SetLucky.name, new SetLucky());
-        register(SetProtector.name, new SetProtector());
-        register(SetBasicArmor.name, new SetBasicArmor());
-        register(SetBasicHealth.name, new SetBasicHealth());
-        register(SetBasicDamage.name, new SetBasicDamage());
-        register(ShowEnhance.name, new ShowEnhance());
-        register(Reload.name, new Reload(this.plugin));
-        register(Version.name, new Version());
+
+        CommandInterface[] cmds = {
+            new SetStone(),
+            new SetLucky(),
+            new SetProtector(),
+            new SetBasicArmor(),
+            new SetBasicHealth(),
+            new SetBasicDamage(),
+            new ShowEnhance(),
+            new Reload(this.plugin),
+            new Version()
+        };
+
+        registerAll(cmds);
     }
 }

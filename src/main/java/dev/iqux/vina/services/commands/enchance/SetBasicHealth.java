@@ -10,8 +10,6 @@ import dev.iqux.vina.utils.User;
 
 public class SetBasicHealth extends SetCommand {
 
-    public static final String name = "setbasichealth";
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (! this.validateSender(sender)) {
@@ -42,5 +40,10 @@ public class SetBasicHealth extends SetCommand {
     @Override
     protected String permission() {
         return "vina.command.enchance.setbasichealth";
+    }
+
+    @Override
+    public String getName() {
+        return "setbasichealth";
     }
 }

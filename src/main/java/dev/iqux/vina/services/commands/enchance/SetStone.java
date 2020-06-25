@@ -8,8 +8,6 @@ import dev.iqux.vina.app.enchance.resources.Stone;
 
 public class SetStone extends SetCommand {
 
-    public static final String name = "setstone";
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (! this.validateSender(sender)) {
@@ -28,5 +26,10 @@ public class SetStone extends SetCommand {
     @Override
     protected String permission() {
         return "vina.command.enchance.setstone";
+    }
+
+    @Override
+    public String getName() {
+        return "setstone";
     }
 }
