@@ -9,8 +9,6 @@ import dev.iqux.vina.utils.Config;
 
 abstract public class BaseCommand implements CommandInterface, CommandExecutor {
 
-    protected String[] alias = {};
-
     abstract protected String permission();
 
     protected boolean validateSender(CommandSender sender) {
@@ -52,6 +50,8 @@ abstract public class BaseCommand implements CommandInterface, CommandExecutor {
     }
 
     public String[] getAlias() {
+
+        String[] alias = {};
 
         return alias;
     }

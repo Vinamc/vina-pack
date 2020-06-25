@@ -33,4 +33,9 @@ public class Version extends BaseCommand {
     public String getName() {
         return "version";
     }
+
+    @Override
+    public String[] getAlias() {
+        return alias;
+    }
 }
