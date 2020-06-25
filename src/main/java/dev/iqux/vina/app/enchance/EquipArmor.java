@@ -1,5 +1,7 @@
 package dev.iqux.vina.app.enchance;
 
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType.SlotType;
@@ -18,10 +20,11 @@ public class EquipArmor {
         Player p       = (Player) e.getWhoClicked();
         ItemStack item = getItem(e);
 
-        Double health = p.getMaxHealth() + Armor.getTotalHealth(item);
+        AttributeInstance attr = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        Double health = attr.getBaseValue() + Armor.getTotalHealth(item);
 
-        if (isEquipArmor(e) && health > 19) {
-            p.setMaxHealth(health);
+        if (isEquipArmor(e) && health >= 20) {
+            attr.setBaseValue(health);
         }
     }
 
@@ -29,11 +32,11 @@ public class EquipArmor {
         Player p       = (Player) e.getWhoClicked();
         ItemStack item = getItem(e);
 
-        Double health = p.getMaxHealth() - Armor.getTotalHealth(item);
-        health = health < 21 ? 20 : health;
+        AttributeInstance attr = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        Double health = attr.getBaseValue() - Armor.getTotalHealth(item);
 
-        if (isDeEquipArmor(e)) {
-            p.setMaxHealth(health);
+        if (isDeEquipArmor(e) && health >= 20) {
+            attr.setBaseValue(health);
         }
     }
 
