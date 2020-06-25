@@ -80,6 +80,10 @@ public class Enhancement {
         return nbti.getItem();
     }
 
+    protected static Boolean shouldEnhanceStats(String key) {
+        return Config.getBoolean("enable_enhance.".concat(key));
+    }
+
     private static String getDisplayNamePattern() {
         String s = Config.getString("enhancement.item.name");
         s = Utils.color(s);

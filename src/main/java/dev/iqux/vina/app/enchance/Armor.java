@@ -45,8 +45,14 @@ public class Armor extends Enhancement {
             "level.".concat(Integer.toString(level)).concat(".health_increase")
         );
 
-        item = setHealth(item, getBasicHealth(item), getEnhanceHealth(item) + decreaseHealth);
-        item = setArmor(item, getBasicArmor(item), getEnhanceArmor(item) + decreaseArmor);
+        if (shouldEnhanceStats("armor.health")) {
+            item = setHealth(item, getBasicHealth(item), getEnhanceHealth(item) + decreaseHealth);
+        }
+
+        if (shouldEnhanceStats("armor.armor")) {
+            item = setArmor(item, getBasicArmor(item), getEnhanceArmor(item) + decreaseArmor);
+        }
+
         item = setNameItemLevel(item, downLevel);
         item = setItemLevel(item, downLevel);
 

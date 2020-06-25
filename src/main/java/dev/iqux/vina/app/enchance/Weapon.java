@@ -19,7 +19,10 @@ public class Weapon extends Enhancement {
             "level.".concat(Integer.toString(nextLevel)).concat(".armor_increase")
         );
 
-        item = setDamage(item, getBasicDamage(item), getEnhanceDamage(item) + increaseDamage);
+        if (shouldEnhanceStats("weapon.damage")) {
+            item = setDamage(item, getBasicDamage(item), getEnhanceDamage(item) + increaseDamage);
+        }
+
         item = setNameItemLevel(item, nextLevel);
         item = setItemLevel(item, nextLevel);
 

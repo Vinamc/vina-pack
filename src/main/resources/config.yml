@@ -1,3 +1,11 @@
+
+enable_enhance:
+  armor:
+    armor: true
+    health: true
+  weapon:
+    damage: true
+
 broadcast_success_after_level: 8
 
 message_prefix: "[&6&lVinaMC&r] "
