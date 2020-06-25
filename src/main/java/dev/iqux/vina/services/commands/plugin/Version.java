@@ -15,11 +15,11 @@ public class Version extends BaseCommand {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-        sender.sendMessage(Config.getString(
-            "message_prefix"
+        sender.sendMessage(
+            Utils.color(Config.getString("message_prefix"))
             .concat(Utils.color("&2Plugin version &6"))
             .concat(App.version)
-        ));
+        );
 
         return true;
     }
