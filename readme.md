@@ -18,6 +18,7 @@ This plugin belongs with [VinaMC](https://vinamc.com)
 - `/vina setbasichealth <number>` Set default health for item
 - `/vina setbasicdamage <number>` Set default damage for item
 - `/vina setbasicarmor <number>` Set default armor for item
+- `/vina version` Show version of plugin
 - `/vina reload` Reload config plugin
 
 ## Permissions

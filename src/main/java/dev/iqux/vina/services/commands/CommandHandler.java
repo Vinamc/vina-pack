@@ -13,6 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import dev.iqux.vina.contracts.command.CommandInterface;
 import dev.iqux.vina.services.commands.enchance.*;
 import dev.iqux.vina.services.commands.plugin.Reload;
+import dev.iqux.vina.services.commands.plugin.Version;
 import dev.iqux.vina.utils.Config;
 import dev.iqux.vina.utils.Utils;
 
@@ -83,5 +84,6 @@ public class CommandHandler implements CommandExecutor {
         register(SetBasicDamage.name, new SetBasicDamage());
         register(ShowEnhance.name, new ShowEnhance());
         register(Reload.name, new Reload(this.plugin));
+        register(Version.name, new Version());
     }
 }

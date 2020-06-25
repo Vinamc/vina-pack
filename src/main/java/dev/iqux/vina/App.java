@@ -14,6 +14,8 @@ import dev.iqux.vina.utils.Plugin;
  */
 public class App extends JavaPlugin
 {
+    public static String version = "2.0.3";
+
     @Override
     public void onEnable() {
 
