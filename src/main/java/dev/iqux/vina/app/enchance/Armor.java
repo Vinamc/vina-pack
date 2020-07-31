@@ -45,7 +45,7 @@ public class Armor extends Enhancement {
             "level.".concat(Integer.toString(level)).concat(".health_increase")
         );
 
-        if (shouldEnhanceStats("armor.health")) {
+        if (shouldEnhanceStats("armor.health") && false) {
             item = setHealth(item, getBasicHealth(item), getEnhanceHealth(item) + decreaseHealth);
         }
 
