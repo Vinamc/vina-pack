@@ -30,7 +30,11 @@ public class EnhancementUI {
             }
         }
 
-        Utils.createItem(inv, Material.ANVIL.name(), 1, 50, "Enhance", "Enhance those item");
+        ItemStack action = Utils.createItem(inv, Material.ANVIL.name(), 1, 50, Config.getString("gui.enhance_action.name"));
+        ItemStack helper = Utils.createItem(inv, Material.PAPER.name(), 1, 54, Config.getString("gui.enhance_helper.name"));
+
+        action.getItemMeta().setLore(Config.getStringList("gui.enhance_action.lore"));
+        helper.getItemMeta().setLore(Config.getStringList("gui.enhance_helper.lore"));
 
         return inv;
     }
