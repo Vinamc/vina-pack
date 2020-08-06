@@ -1,4 +1,3 @@
-
 enable_enhance:
   armor:
     armor: true
@@ -17,6 +16,19 @@ enhancement:
       stats_damage: "&7Sát thương cơ bản: &a%basic_damage% &e( +%enhance_damage% )"
       stats_armor: "&7Giáp cơ bản: &a%basic_armor% &e( +%enhance_armor% )"
       stats_health: "&7Máu cơ bản: &a%basic_health% &e( +%enhance_health% )"
+
+gui:
+  enhance_action:
+    name: "&a&lNhấn Để Cường Hóa"
+    lore:
+      - "lore 1"
+      - "lore 2"
+
+  enhance_helper:
+    name: "&a&lưu Ý"
+    lore:
+      - "lore 1"
+      - "lore 2"
 
 message:
   enhance_success: "&aCường hóa thành công"
