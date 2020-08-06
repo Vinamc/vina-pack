@@ -1,5 +1,7 @@
 package dev.iqux.vina.utils;
 
+import java.util.List;
+
 public class Config {
 
     public static Double getDouble(String key) {
@@ -26,6 +28,10 @@ public class Config {
         Double d = Plugin.plugin.getConfig().getDouble(key);
 
         return d.floatValue();
+    }
+
+    public static List<String> getStringList(String key) {
+        return Plugin.plugin.getConfig().getStringList(key);
     }
 
     public static String message(String key) {
