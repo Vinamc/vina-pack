@@ -7,6 +7,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import dev.iqux.vina.app.enchance.resources.Lucky;
 import dev.iqux.vina.app.enchance.resources.Protector;
@@ -33,8 +34,14 @@ public class EnhancementUI {
         ItemStack action = Utils.createItem(inv, Material.ANVIL.name(), 1, 50, Config.getString("gui.enhance_action.name"));
         ItemStack helper = Utils.createItem(inv, Material.PAPER.name(), 1, 54, Config.getString("gui.enhance_helper.name"));
 
-        action.getItemMeta().setLore(Config.getStringList("gui.enhance_action.lore"));
-        helper.getItemMeta().setLore(Config.getStringList("gui.enhance_helper.lore"));
+        ItemMeta actionMeta = action.getItemMeta();
+        ItemMeta helperMeta = helper.getItemMeta();
+
+        actionMeta.setLore(Config.getStringList("gui.enhance_action.lore"));
+        helperMeta.setLore(Config.getStringList("gui.enhance_helper.lore"));
+
+        action.setItemMeta(actionMeta);
+        helper.setItemMeta(helperMeta);
 
         return inv;
     }
