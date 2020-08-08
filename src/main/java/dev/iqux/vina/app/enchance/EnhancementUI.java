@@ -175,9 +175,14 @@ public class EnhancementUI {
 
             if (slot == 15) {
                 User.giveBackItem(p, item);
-            } else if (!Utils.isAirItem(item) && item.getAmount() > 1) {
+            }
+            else if (slot == 13) {
+                inv.clear(slot - 1);
+            }
+            else if (!Utils.isAirItem(item) && item.getAmount() > 1) {
                 item.setAmount(item.getAmount() -1);
-            } else {
+            }
+            else {
                 inv.clear(slot - 1);
             }
         }
