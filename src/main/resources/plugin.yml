@@ -2,7 +2,7 @@ main: dev.iqux.vina.App
 name: VinaPack
 author: HlV_Is_Me
 descriptions: vina pack plugin
-version: 2.0.6
+version: 2.0.7
 depend: [NBTAPI]
 
 commands:
