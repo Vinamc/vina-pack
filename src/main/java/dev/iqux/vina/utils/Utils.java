@@ -43,6 +43,23 @@ public class Utils {
         return item == null || item.getType().name().equals(Material.AIR.name());
     }
 
+    public static ItemStack createItemLores(Inventory inv, String material, int amount, int slot, String displayName, List<String> loreStrings) {
+        ItemStack    item = new ItemStack(Material.matchMaterial(material), amount);
+        List<String> lore = new ArrayList <String>();
+        ItemMeta     meta = item.getItemMeta();
+
+        for (String s : loreStrings) {
+            lore.add(Utils.color(s));
+        }
+
+        meta.setLore(lore);
+        meta.setDisplayName(Utils.color(displayName));
+        item.setItemMeta(meta);
+        inv.setItem(slot -1 , item);
+
+        return item;
+    }
+
     public static ItemStack createItem(Inventory inv, String material, int amount, int slot, String displayName, String ...loreStrings) {
         ItemStack    item = new ItemStack(Material.matchMaterial(material), amount);
         List<String> lore = new ArrayList <String>();
