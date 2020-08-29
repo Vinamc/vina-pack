@@ -21,7 +21,8 @@ public class Enhancement {
         if (type.endsWith("_HELMET")     ||
             type.endsWith("_CHESTPLATE") ||
             type.endsWith("_LEGGINGS")   ||
-            type.endsWith("_BOOTS")) {
+            type.endsWith("_BOOTS"))     ||
+            type.endsWith("ELYTRA")){
             return true;
         }
 
