@@ -18,7 +18,7 @@ import be.maximvdw.placeholderapi.PlaceholderReplaceEvent;
 
 public class App extends JavaPlugin
 {
-    public static String version = "2.0.7";
+    public static String version = "2.0.8";
 
     @Override
     public void onEnable() {
